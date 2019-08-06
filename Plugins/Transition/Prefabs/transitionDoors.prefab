@@ -245,7 +245,7 @@ Animator:
   m_GameObject: {fileID: 152660}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ac15c844044e845439424a822575edd8, type: 2}
+  m_Controller: {fileID: 9100000, guid: b5eed7c9f047a6347a178e3b526525f6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -263,13 +263,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 152660}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 873974a5b16081342b714a184e62f3df, type: 3}
+  m_Script: {fileID: 11500000, guid: 50e8abb72294b98429fdcf76d5aa9602, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 9535410}
-  transitionHiddenEvent: {fileID: 11400000, guid: d7ad44712644ded43b10ad845b8db87b,
+  transitionHiddenEvent: {fileID: 11400000, guid: 8785d873256394c4382166f20836fcdb,
     type: 2}
-  transitionShownEvent: {fileID: 11400000, guid: 8cf5375c5add82b408b066aa4b303ed9,
+  transitionShownEvent: {fileID: 11400000, guid: 8d5b1b76e61252142a2ee57e7512e85e,
     type: 2}
 --- !u!1 &1484084399176660
 GameObject:
