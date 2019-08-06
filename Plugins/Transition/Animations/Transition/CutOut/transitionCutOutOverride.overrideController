@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: transitionCutOutOverride
+  m_Controller: {fileID: 9100000, guid: ac15c844044e845439424a822575edd8, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: e85695d69776b9949a499e515bd2c47b, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6fe0ccd172e6fd14a89bfcfcdc2f99f8, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: d8b723f9ac4b4d84d947f91849a1d88f, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: eef4befbdd6e33c4f99fa0d963f7cafc, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: d8e2688a18288854cb48c885571a3963, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a6e9a13ba40af254f8926c7f20537e3b, type: 2}
