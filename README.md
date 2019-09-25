@@ -12,6 +12,8 @@ An object pool is important and often required in video games project. Shown and
 Between scenes, to hide loading time, you have to show a transition screen. This two prefabs allow you to call the transition to be shown or hidden and subscribe to its event to know when you can load something behind the players back.
 Requires the EventHandler and Singleton.
 
+![demo](images/transition_demo.gif)
+
 ![how it is supposed to work](images/transition_schema.jpg)
 
 ## Singleton
