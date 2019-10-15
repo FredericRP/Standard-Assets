@@ -1,16 +1,15 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 namespace FredericRP.BucketGenerator
 {
-  public class BucketGenerator
+  public class Bucket
   {
     private int max;
     int[] randomList;
     int indexInList;
     bool resetWhenLooping = true;
 
-    public BucketGenerator(int max, bool resetWhenLooping = true)
+    public Bucket(int max, bool resetWhenLooping = true)
     {
       SetMax(max);
       this.resetWhenLooping = resetWhenLooping;
