@@ -1,4 +1,3 @@
----
 type: YAML
 owner: FredericRP
 standardAsset: Yes
@@ -8,9 +7,6 @@ minorversion: 2
 lastModification: 2019-08-01
 unityVersionMinimum: Unity 2019
 
-description:
-	- A generic Singleton that allows you to inherit from it from your class to access its instance with the static Instance property.
----
+## Description
 
- 
-
+A generic Singleton that allows you to inherit from it from your class to access its instance with the static Instance property.

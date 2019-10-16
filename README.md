@@ -1,6 +1,20 @@
 # Standard-Assets
 Assets used in almost all of our projects. Some are quite old but still useful.
 
+## Bucket
+
+A bucket (or bean bag) is a tool to get random numbers within an interval only once.
+![bucket](images/bucket.png)
+
+
+## Event Handler
+
+A generic event handler that allows you to subscribe and trigger game events in your game in a minute. GameEvents have evolved thanks to the Unite 2017 presentation by Schell Games (but we still prefer our way to handle listener with delegates).
+
+## Singleton
+
+A generic singleton class that allows you to have Singleton in your project without reimplementing it every time and YES, I use Singleton !
+
 ## Object Pool & Inspector
 
 An object pool is important and often required in video games project. Shown and explained in my YouTube (french) video here, you can find this (old) sources right there.
@@ -15,11 +29,3 @@ Requires the EventHandler and Singleton.
 ![demo](images/transition_demo.gif)
 
 ![how it is supposed to work](images/transition_schema.jpg)
-
-## Singleton
-
-A generic singleton class that allows you to have Singleton in your project without reimplementing it every time and YES, I use Singleton !
-
-## Event Handler
-
-A generic event handler that allows you to subscribe and trigger game events in your game in a minute. GameEvents have evolved thanks to the Unite 2017 presentation by Schell Games (but we still prefer our way to handle listener with delegates).
