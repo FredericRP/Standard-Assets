@@ -27,6 +27,8 @@ namespace FredericRP.ObjectPooling
       GUILayout.Label("----", GUILayout.Width(80));
       EditorGUILayout.EndHorizontal();
 
+      EditorGUI.BeginChangeCheck();
+
       if (poolObjectList.Count > 0)
       {
         for (int i = 0; i < poolObjectList.Count; i++)
@@ -98,6 +100,11 @@ namespace FredericRP.ObjectPooling
           poolObjectList.Add(new ObjectPool.PoolGameObjectInfo());
         }
         GUI.color = previousColor;
+      }
+
+      if (EditorGUI.EndChangeCheck())
+      {
+        EditorUtility.SetDirty(pool);
       }
     }
   }
