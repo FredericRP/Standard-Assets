@@ -15,8 +15,7 @@ namespace FredericRP.ObjectPooling
         /// It allows to have multiple pools in your game without having to link them manually
         /// </summary>
         #region Object Pool handling
-        [SerializeField]
-        string id = "pool";
+        public string id = "pool";
 
         private static List<ObjectPool> objectPoolList;
 
