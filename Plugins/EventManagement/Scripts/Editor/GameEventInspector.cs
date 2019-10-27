@@ -9,7 +9,7 @@ namespace FredericRP.EventManagement
         public override void OnInspectorGUI()
         {
             GUILayout.Label("GameEvent: " + serializedObject.targetObject.name);
-            if (GUILayout.Button("RAISE", EditorStyles.toolbarButton))
+            if (GUILayout.Button("RAISE"))
             {
                 EventHandler.TriggerEvent(serializedObject.targetObject as GameEvent);
             }

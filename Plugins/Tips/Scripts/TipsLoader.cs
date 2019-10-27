@@ -6,12 +6,12 @@ using UnityEngine;
 
 namespace FredericRP.Tips
 {
-  public class TipsLoader : MonoBehaviour
+  public class TipsLoader : Singleton<TipsLoader>
   {
     [SerializeField]
-    string assetBundleName;
+    string assetBundleName = null;
     [SerializeField]
-    string assetName;
+    string assetName = null;
 
     string[] tipList;
     Bucket bucket;

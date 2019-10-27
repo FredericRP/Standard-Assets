@@ -10,9 +10,7 @@ namespace FredericRP.Tips
     [SerializeField]
     float delayBetweenTips = 2.5f;
     [SerializeField]
-    TextMeshProUGUI text;
-    [SerializeField]
-    TipsLoader tipsLoader;
+    TextMeshProUGUI text = null;
 
     float nextTip;
     // Start is called before the first frame update
@@ -33,7 +31,7 @@ namespace FredericRP.Tips
 
     void DisplayNextTip()
     {
-      text.text = tipsLoader.GetTip();
+      text.text = TipsLoader.Instance.GetTip();
     }
   }
 

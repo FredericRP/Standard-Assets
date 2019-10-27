@@ -44,13 +44,13 @@ namespace FredericRP.ObjectPooling
           data.prefab = (GameObject)EditorGUILayout.ObjectField(data.prefab, typeof(GameObject), false, GUILayout.Width(30));
           GUI.color = previousColor;
 
-          data.bufferCount = EditorGUILayout.IntField(data.bufferCount, GUILayout.Width(28));
+          data.bufferCount = EditorGUILayout.IntField(data.bufferCount, GUILayout.Width(38));
           float count = data.bufferCount;
           float max = data.maxCount;
           EditorGUILayout.MinMaxSlider(ref count, ref max, 0, 300);
           data.bufferCount = (int)count;
           data.maxCount = (int)max;
-          data.maxCount = EditorGUILayout.IntField(data.maxCount, GUILayout.Width(28));
+          data.maxCount = EditorGUILayout.IntField(data.maxCount, GUILayout.Width(38));
 
           GUILayout.Label("on");
           if (data.defaultParent == null)

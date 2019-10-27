@@ -5,7 +5,7 @@ namespace FredericRP.EventManagement
     [CreateAssetMenu(menuName ="FredericRP/Game Event")]
     public class GameEvent : ScriptableObject
     {
-        public void Raise()
+        public virtual void Raise()
         {
             EventHandler.TriggerEvent(this);
         }

@@ -4,13 +4,18 @@ using UnityEngine.Events;
 
 public class SimpleEventTrigger : MonoBehaviour
 {
-    [SerializeField]
-    GameEvent gameEvent;
-    [SerializeField]
-    UnityEvent unityEvent;
+  [SerializeField]
+  GameEvent gameEvent = null;
+  [SerializeField]
+  UnityEvent unityEvent = null;
 
-    private void Start()
-    {
-        EventHandler.AddEventListener(gameEvent, unityEvent.Invoke);
-    }
+  private void OnEnable()
+  {
+    EventHandler.AddEventListener(gameEvent, unityEvent.Invoke);
+  }
+
+  private void OnDisable()
+  {
+    EventHandler.RemoveEventListener(gameEvent, unityEvent.Invoke);
+  }
 }

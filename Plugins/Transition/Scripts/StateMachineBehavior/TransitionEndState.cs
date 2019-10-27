@@ -3,15 +3,15 @@
 namespace FredericRP.Transition
 {
 
-    public class TransitionEndState : StateMachineBehaviour
+  public class TransitionEndState : StateMachineBehaviour
+  {
+    public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
-        public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
-        {
-            if (animator.GetBool("visible"))
-                animator.gameObject.GetComponent<Transition>().TriggerDisplayed();
-            else
-                animator.gameObject.GetComponent<Transition>().TriggerHidden();
-        }
+      if (animator.GetBool("visible"))
+        animator.gameObject.GetComponent<Transition>().TriggerDisplayed();
+      else
+        animator.gameObject.GetComponent<Transition>().TriggerHidden();
     }
+  }
 
 }
