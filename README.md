@@ -1,11 +1,14 @@
 # Standard-Assets
 Assets used in almost all of our projects. Some are quite old but still useful.
 
+## Asset Bundle Tool
+
+A simple local loader for asset bundles and an editor window that allows to export AssetBundles from unity.
+
 ## Bucket
 
 A bucket (or bean bag) is a tool to get random numbers within an interval only once.
 ![bucket](images/bucket.png)
-
 
 ## Event Handler
 
@@ -17,13 +20,20 @@ A generic singleton class that allows you to have Singleton in your project with
 
 ## Object Pool & Inspector
 
-An object pool is important and often required in video games project. Shown and explained in my YouTube (french) video here, you can find this (old) sources right there.
+Use ObjectPool to instantiate game objects during loading time and not during gameplay.
+This version allows you to havec multiple pools in your game.
 
 ![object pool inspector](images/object_pool.png)
 
+## Tips
+
+A simple tool that allow to show random tips to user when a level is loading.
+Tips are exported as AssetBundles.
+
 ## Transition
 
-Between scenes, to hide loading time, you have to show a transition screen. This two prefabs allow you to call the transition to be shown or hidden and subscribe to its event to know when you can load something behind the players back.
+Between scenes, to hide loading time, you have to show a transition screen. Those two prefabs allow you to call the transition to be shown or hidden.
+Subscribe to its events to know when you can load something behind the players back.
 Requires the EventHandler and Singleton.
 
 ![demo](images/transition_demo.gif)
