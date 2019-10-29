@@ -1,16 +1,11 @@
-type: YAML
-company: FredericRP
-standardAsset: Yes
-name: BucketGenerator
-majorversion: 1
-minorversion: 0
-lastModification: 2019-10-15
-unityVersionMinimum: Unity 2019
+# Bucket Generator
 
-## Description
+A bucket (or bean bag) is a tool to get random numbers within an interval only once.
+![bucket](../../images/bucket.png)
 
-The bucket generator provides an easy way for random round robin algorithm.
+This bucket generator provides an easy way for random round robin algorithm.
 
 ## Usage
 
 Instantiate a new BucketGenerator and call GetRandomNumber to obtain a number from the bucket.
+
