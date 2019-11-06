@@ -1,0 +1,2 @@
+Tips are loaded from an AssetBundle
+Show tips to user randomly during loading screen

@@ -13,7 +13,7 @@ namespace FredericRP.ObjectPooling
 
       // New : set ID of ObjectPool
       EditorGUILayout.BeginHorizontal(EditorStyles.toolbar);
-      EditorGUILayout.TextField("Pool ID", pool.id);
+      pool.id = EditorGUILayout.TextField("Pool ID", pool.id);
       EditorGUILayout.EndHorizontal();
       //
       List<ObjectPool.PoolGameObjectInfo> poolObjectList = pool.PoolGameObjectInfoList;

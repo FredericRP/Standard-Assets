@@ -9,12 +9,22 @@ namespace FredericRP.AssetBundleTool
   {
     const string EDITOR_PREFS_KEY = "FredericRP.AssetBundlesExporter.ExportDirectory";
 
-    string assetBundleDirectory;
+    string assetBundleDirectory = "Assets/AssetBundles";
+    Vector2 windowMinSize = new Vector2(340, 80);
+    Vector2 windowMaxSize = new Vector2(640, 380);
 
     [MenuItem("Assets/FredericRP/Asset Bundles Build")]
     static void ShowWindow()
     {
-      EditorWindow.CreateWindow<AssetBundleExportWindow>().ShowPopup();
+      AssetBundleExportWindow window = GetWindow<AssetBundleExportWindow>();
+      // Set min, max size and default size
+      window.minSize = window.windowMinSize;
+      window.maxSize = window.windowMaxSize;
+      Rect position = window.position;
+      position.width = window.windowMinSize.x;
+      position.height = window.windowMinSize.y;
+      window.position = position;
+      window.ShowPopup();
     }
 
     private void OnEnable()
@@ -34,6 +44,8 @@ namespace FredericRP.AssetBundleTool
     {
       // Title
       titleContent = new GUIContent("Asset Bundle Build");
+      // Description
+      EditorGUILayout.HelpBox("Enter the output directory, then click on Export to create all asset bundles present in your unity project.", MessageType.Info);
       // Directory
       assetBundleDirectory = ShowDirectoryGUI(assetBundleDirectory);
       // Build / Cancel button
@@ -63,6 +75,8 @@ namespace FredericRP.AssetBundleTool
       BuildPipeline.BuildAssetBundles(assetBundleDirectory,
                                       BuildAssetBundleOptions.None,
                                       BuildTarget.StandaloneWindows);
+      // close once it's done
+      Close();
     }
   }
 }
