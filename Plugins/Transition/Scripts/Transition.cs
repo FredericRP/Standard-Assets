@@ -29,7 +29,7 @@ namespace FredericRP.Transition
     }
     public static void Hide()
     {
-      Instance.animator.SetBool("visible", false);
+      Instance.animator?.SetBool("visible", false);
     }
 
     public void TriggerHidden()
