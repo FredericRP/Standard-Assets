@@ -122,17 +122,19 @@ namespace FredericRP.ObjectPooling
 
     public void HeavyAwake()
     {
+      Transform parent;
       // Loop through the object prefabs and make a new list for each one.
       foreach (PoolGameObjectInfo poolObject in poolObjectList)
       {
         if (!pooledObjects.ContainsKey(poolObject.id))
         {
           pooledObjects.Add(poolObject.id, new List<GameObject>(poolObject.bufferCount));
+          parent = poolObject.defaultParent != null ? poolObject.defaultParent : transform;
 
           // Init or complete the object pool
           for (int n = 0; n < poolObject.bufferCount; n++)
           {
-            GameObject newObj = Instantiate(poolObject.prefab) as GameObject;
+            GameObject newObj = Instantiate(poolObject.prefab, parent) as GameObject;
             newObj.name = poolObject.id;
             Pool(newObj, poolObject.id, poolObject.defaultParent);
           }
@@ -196,8 +198,8 @@ namespace FredericRP.ObjectPooling
 
     GameObject InstantiateObject(PoolGameObjectInfo poolObject)
     {
-      GameObject newObj = Instantiate(poolObject.prefab) as GameObject;
-      newObj.transform.SetParent(poolObject.defaultParent != null ? poolObject.defaultParent : transform);
+      Transform parent = poolObject.defaultParent != null ? poolObject.defaultParent : transform;
+      GameObject newObj = Instantiate(poolObject.prefab, parent) as GameObject;
       // Attach to object pool by default
       if (newObj.transform.parent == null)
       {
@@ -226,9 +228,11 @@ namespace FredericRP.ObjectPooling
       PoolGameObjectInfo poolObject = poolObjectList.Find(element => objectName.StartsWith(element.id));
       bool objectPrefabExists = (poolObject != null);
 
+#if UNITY_EDITOR
       // Don't get from pool while in editor and not playing
       if (!Application.isPlaying)
         return InstantiateObject(poolObject);
+#endif
 
       if (objectPrefabExists)
       {
@@ -307,7 +311,7 @@ namespace FredericRP.ObjectPooling
       if (objectKind == null)
         objectKind = obj.name;
 
-      PoolGameObjectInfo poolObjectKind = poolObjectList.Find(element => objectKind.StartsWith(element.id));
+      PoolGameObjectInfo poolObjectKind = poolObjectList.Find(element => objectKind.Equals(element.id));
 
       if (poolObjectKind != null)
       {
