@@ -1,6 +1,6 @@
 # Standard-Assets
 
-Assets used in almost all of our projects.
+Useful code assets for your games projects. Those assets are an update of assets used in my former video games XP used to release games on PC, Mobiles and Switch(c).
 
 # How to use
 
@@ -28,7 +28,7 @@ A simple local loader for asset bundles and an editor window that allows to expo
 ## Bucket
 
 A bucket (or bean bag) is a tool to get random numbers within an interval, only once.
-![bucket](images/bucket.png)
+![bucket](BucketGenerator/Documentation~/images/bucket.png)
 
 This bucket generator provides an easy way for random round robin algorithm.
 
@@ -39,7 +39,7 @@ Instantiate a new BucketGenerator and call *GetRandomNumber* method to obtain a 
 ### Demo
 A demo scene is present under the Sample folder.
 
-![bucket demo](images/bucketDemo.jpg)
+![bucket demo](BucketGenerator/Documentation~/images/bucketDemo.jpg)
 
 ## Event Management
 
@@ -90,7 +90,7 @@ See Transition class for a demo.
 Use ObjectPool to instantiate game objects during loading time and not during gameplay.
 This version allows you to have multiple pools in your game, so you can have a global one that won't be destroyed between scenes, and some level-specific ones.
 
-![object pool inspector](images/object_pool.png)
+![object pool inspector](ObjectPool/Documentation~/images/object_pool.png)
 
 ### Usage
 
@@ -112,7 +112,7 @@ ObjectPool.GetObjectPool("mypool").Pool(usedObject)
 Pile up popups and pop them out as you want.
 The popup manager allows to show and hide popups, and handle going back and forth between opened popups.
 
-![Popup](images/popups.gif)
+![Popup](Popup/Documentation~/images/popups.gif)
 
 ### Usage
 
@@ -158,7 +158,7 @@ A simple tool that allows to show random tips to user when a level is loading.
 
 Tips are exported as AssetBundles.
 
-![Tips in loading scene](images/async-loading.jpg)
+![Tips in loading scene](Tips/Documentation~/images/async-loading.jpg)
 
 ## Transition
 
@@ -168,7 +168,7 @@ Subscribe to its events (TransitionShown and TransitionHidden) to know when you 
 
 > *Requires the EventHandler and Singleton.*
 
-![how it is supposed to work](images/transition_schema.jpg)
+![how it is supposed to work](Transition/Documentation~/images/transition_schema.jpg)
 
 ### Demo
 
@@ -178,7 +178,7 @@ A demo is present under the Sample folder.
 2. Click the Play button
 3. In the editor, use the [S] key to show the transition, and the [H] key to hide it.
 
-![demo](images/transition_demo.gif)
+![demo](Transition/Documentation~/images/transition_demo.gif)
 
 
 # That's all folks !
@@ -187,7 +187,7 @@ Thanks for downloading this unity package, I hope this one will be added to your
 
 Here are some useful links to reach me:
 
-Other assets: https://store.fredericrp.com
+All assets: https://store.fredericrp.com
 
 Twitter: https://twitter.com/fredericrp
 
