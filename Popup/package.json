@@ -1,0 +1,19 @@
+{
+  "name": "com.fredericrp.popups",
+  "version": "1.0.0",
+  "displayName": "FRP Popups",
+  "description": "Pile up popups and pop them out as you want. The popup manager allows to show and hide popups, and handle going back and forth between opened popups.",
+  "unity": "2020.1",
+  "unityRelease": "0f1",
+  "dependencies": {
+  "com.fredericrp.singleton": "1.0.0"
+ },
+ "keywords": [
+    "standard assets"
+  ],
+  "author": {
+    "name": "FredericRP",
+    "email": "unity@FredericRP.com",
+    "url": "https://FredericRP.com"
+  }
+}

@@ -1,0 +1,16 @@
+{
+    "name": "FredericRP.Popups.Runtime",
+    "references": [
+        "GUID:0c7df74e17f80f346b5568bdbbce58c1",
+        "GUID:da3aa5d86c17e4b409c62a078b3f43b8"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,19 @@
+{
+  "name": "com.fredericrp.abtest",
+  "version": "1.0.0",
+  "displayName": "FredericRP Asset Bundle Tool",
+  "description": "Tool for Asset Bundles - FredericRP standard assets",
+  "unity": "2020.1",
+  "unityRelease": "0f1",
+  "dependencies": {
+ }
+ "keywords": [
+    "standard assets"
+  ],
+  "author": {
+    "name": "FredericRP",
+    "email": "unity@FredericRP.com",
+    "url": "https://FredericRP.com"
+  }
+}
+

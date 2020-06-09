@@ -1,0 +1,20 @@
+{
+  "name": "com.fredericrp.tips",
+  "version": "1.0.0",
+  "displayName": "FRP Tips",
+  "description": "A simple tool that allows to show random tips to player when a level is loading. Tips are exported as AssetBundles.",
+  "unity": "2020.1",
+  "unityRelease": "0f1",
+  "dependencies": {
+  "com.fredericrp.singleton": "git@github.com:FredericRP/SATest.git?path=/Plugins/Singleton",
+  "com.fredericrp.assetbundletool": "git@github.com:FredericRP/SATest.git?path=/Plugins/AssetBundleTool"
+ },
+ "keywords": [
+    "standard assets"
+  ],
+  "author": {
+    "name": "FredericRP",
+    "email": "unity@FredericRP.com",
+    "url": "https://FredericRP.com"
+  }
+}

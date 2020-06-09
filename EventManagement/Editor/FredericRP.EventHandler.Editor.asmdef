@@ -1,0 +1,15 @@
+{
+    "name": "FredericRP.EventHandler.Editor",
+    "references": [
+        "GUID:4465702d419896044ad684462c9fa7c9"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

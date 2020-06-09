@@ -1,0 +1,20 @@
+{
+  "name": "com.fredericrp.transition",
+  "version": "1.0.0",
+  "displayName": "FRP Transition prefabs",
+  "description": "Between scenes, to hide loading time, you have to show a transition screen. Those two prefabs allow you to call the transition to be shown or hidden. Subscribe to its events to know when you can load something behind the players back.",
+  "unity": "2020.1",
+  "unityRelease": "0f1",
+  "dependencies": {
+  "com.fredericrp.singleton" : "1.0.0",
+  "com.fredericrp.eventhandler": "1.0.0"
+ },
+ "keywords": [
+    "standard assets"
+  ],
+  "author": {
+    "name": "FredericRP",
+    "email": "unity@FredericRP.com",
+    "url": "https://FredericRP.com"
+  }
+}

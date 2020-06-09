@@ -1,0 +1,16 @@
+{
+    "name": "FredericRP.Transition.Runtime",
+    "references": [
+        "GUID:4465702d419896044ad684462c9fa7c9",
+        "GUID:da3aa5d86c17e4b409c62a078b3f43b8"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
