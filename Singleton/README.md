@@ -1,7 +1,7 @@
 # Singleton
 
 A singleton is a development pattern that prevents having multiple instances of the same component in a scene.
-It allows also any script to access this one wihout requiring a manual link between the two.
+It allows also any script to access this one without requiring a manual link between the two.
 
 ## Description
 
