@@ -79,6 +79,9 @@ namespace FredericRP.EventManagement
         {
           callback(value);
           return true;
+        } else if (eventDelegate != null)
+        {
+          UnityEngine.Debug.LogWarning("Try to trigger an event with the wrong generic pattern: " + gameEvent);
         }
       }
 
