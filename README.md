@@ -6,7 +6,13 @@ Useful code assets for your games projects. Those assets are an update of assets
 
 ## Installation
 
-1. Import the package
+### Using submodules
+You can import the whole project as a submodule in a unity project.
+From your usual git interface or command line, just add the submodule in a subfolder of the Assets/ folder by using its URL (click on the green *code* button to get it).
+
+### Using unity package
+
+1. Import the package: it's available from the unity asset store itself or the **Releases** section here on [github.com/FredericRP/Standard-Assets/releases](https://github.com/FredericRP/Standard-Assets/releases)
 2. Some assets have a demo scene under their own "Sample" subfolder. Open those scenes to get a demo of how it works.
 3. All assets have a README file, but you also have everything documented in this file.
 
