@@ -1,6 +1,9 @@
 ﻿using FredericRP.EventManagement;
 using System.Collections.Generic;
 using UnityEngine;
+#if ENABLE_INPUT_SYSTEM
+using UnityEngine.InputSystem;
+#endif
 
 namespace FredericRP.Transition
 {
@@ -84,9 +87,10 @@ namespace FredericRP.Transition
       EventHandler.TriggerEvent(transitionShownEvent);
     }
 
+#if UNITY_EDITOR
     private void Update()
     {
-#if UNITY_EDITOR
+#if ENABLE_LEGACY_INPUT_MANAGER
       if (Input.GetKeyDown(KeyCode.S))
       {
         Show();
@@ -95,7 +99,17 @@ namespace FredericRP.Transition
       {
         Hide();
       }
+#else
+      if (Keyboard.current.sKey.wasPressedThisFrame)
+      {
+        Show();
+      }
+      if (Keyboard.current.hKey.wasPressedThisFrame)
+      {
+        Hide();
+      }
 #endif
     }
+#endif
   }
 }

@@ -2,6 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using FredericRP.ObjectPooling;
+#if ENABLE_INPUT_SYSTEM
+using UnityEngine.InputSystem;
+#endif
 
 namespace FredericRP.Popups
 {
@@ -36,7 +39,11 @@ namespace FredericRP.Popups
 #if UNITY_EDITOR
     void Update()
     {
+#if ENABLE_LEGACY_INPUT_MANAGER
       if (Input.GetKeyDown(KeyCode.T))
+#else
+      if (Keyboard.current.tKey.wasPressedThisFrame)
+#endif
       {
         CloseAllPopups();
       }
