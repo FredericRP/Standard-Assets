@@ -28,6 +28,16 @@ namespace FredericRP.EventManagement
       gameEvents[gameEvent] = (UnityAction<T>)gameEvents[gameEvent] + handler;
     }
 
+    public static void AddEventListener<T, U>(GameEvent gameEvent, UnityAction<T, U> handler)
+    {
+      if (!gameEvents.ContainsKey(gameEvent))
+      {
+        gameEvents.Add(gameEvent, null);
+      }
+
+      gameEvents[gameEvent] = (UnityAction<T, U>)gameEvents[gameEvent] + handler;
+    }
+
     public static void RemoveEventListener(GameEvent gameEvent, UnityAction handler)
     {
       Delegate eventDelegate;
@@ -45,6 +55,16 @@ namespace FredericRP.EventManagement
       if (gameEvents.TryGetValue(gameEvent, out eventDelegate))
       {
         gameEvents[gameEvent] = (UnityAction<T>)gameEvents[gameEvent] - handler;
+      }
+    }
+
+    public static void RemoveEventListener<T, U>(GameEvent gameEvent, UnityAction<T, U> handler)
+    {
+      Delegate eventDelegate;
+
+      if (gameEvents.TryGetValue(gameEvent, out eventDelegate))
+      {
+        gameEvents[gameEvent] = (UnityAction<T, U>)gameEvents[gameEvent] - handler;
       }
     }
 
@@ -80,6 +100,28 @@ namespace FredericRP.EventManagement
           callback(value);
           return true;
         } else if (eventDelegate != null)
+        {
+          UnityEngine.Debug.LogWarning("Try to trigger an event with the wrong generic pattern: " + gameEvent);
+        }
+      }
+
+      return false;
+    }
+
+    public static bool TriggerEvent<T, U>(GameEvent gameEvent, T value, U secondValue)
+    {
+      Delegate eventDelegate;
+
+      if (gameEvents.TryGetValue(gameEvent, out eventDelegate))
+      {
+        UnityAction<T, U> callback = eventDelegate as UnityAction<T, U>;
+
+        if (callback != null)
+        {
+          callback(value, secondValue);
+          return true;
+        }
+        else if (eventDelegate != null)
         {
           UnityEngine.Debug.LogWarning("Try to trigger an event with the wrong generic pattern: " + gameEvent);
         }
