@@ -37,6 +37,15 @@ namespace FredericRP.EventManagement
 
       gameEvents[gameEvent] = (UnityAction<T, U>)gameEvents[gameEvent] + handler;
     }
+    public static void AddEventListener<T, U, V>(GameEvent gameEvent, UnityAction<T, U, V> handler)
+    {
+      if (!gameEvents.ContainsKey(gameEvent))
+      {
+        gameEvents.Add(gameEvent, null);
+      }
+
+      gameEvents[gameEvent] = (UnityAction<T, U, V>)gameEvents[gameEvent] + handler;
+    }
 
     public static void RemoveEventListener(GameEvent gameEvent, UnityAction handler)
     {
@@ -65,6 +74,15 @@ namespace FredericRP.EventManagement
       if (gameEvents.TryGetValue(gameEvent, out eventDelegate))
       {
         gameEvents[gameEvent] = (UnityAction<T, U>)gameEvents[gameEvent] - handler;
+      }
+    }
+    public static void RemoveEventListener<T, U, V>(GameEvent gameEvent, UnityAction<T, U, V> handler)
+    {
+      Delegate eventDelegate;
+
+      if (gameEvents.TryGetValue(gameEvent, out eventDelegate))
+      {
+        gameEvents[gameEvent] = (UnityAction<T, U, V>)gameEvents[gameEvent] - handler;
       }
     }
 
@@ -123,7 +141,28 @@ namespace FredericRP.EventManagement
         }
         else if (eventDelegate != null)
         {
-          UnityEngine.Debug.LogWarning("Try to trigger an event with the wrong generic pattern: " + gameEvent);
+          UnityEngine.Debug.LogWarning("Try to trigger an event with the wrong generic (T, U) pattern: " + gameEvent);
+        }
+      }
+
+      return false;
+    }
+    public static bool TriggerEvent<T, U, V>(GameEvent gameEvent, T value, U secondValue, V thirdValue)
+    {
+      Delegate eventDelegate;
+
+      if (gameEvents.TryGetValue(gameEvent, out eventDelegate))
+      {
+        UnityAction<T, U, V> callback = eventDelegate as UnityAction<T, U, V>;
+
+        if (callback != null)
+        {
+          callback(value, secondValue, thirdValue);
+          return true;
+        }
+        else if (eventDelegate != null)
+        {
+          UnityEngine.Debug.LogWarning("Try to trigger an event with the wrong generic (T, U, V) pattern: " + gameEvent);
         }
       }
 
