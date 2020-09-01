@@ -52,7 +52,7 @@ namespace FredericRP.Transition
 
     private void Closed()
     {
-      EventHandler.TriggerEvent(transitionHiddenEvent);
+      transitionHiddenEvent.Raise();
     }
 
     [System.Obsolete("Use GetTransition(id).Show() instead")]
@@ -80,11 +80,11 @@ namespace FredericRP.Transition
 
     public void TriggerHidden()
     {
-      EventHandler.TriggerEvent(transitionHiddenEvent);
+      transitionHiddenEvent.Raise();
     }
     public void TriggerDisplayed()
     {
-      EventHandler.TriggerEvent(transitionShownEvent);
+      transitionShownEvent.Raise();
     }
 
 #if UNITY_EDITOR

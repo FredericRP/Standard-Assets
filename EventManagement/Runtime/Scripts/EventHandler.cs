@@ -8,7 +8,7 @@ namespace FredericRP.EventManagement
   {
     private static Dictionary<GameEvent, Delegate> gameEvents = new Dictionary<GameEvent, Delegate>();
 
-    public static void AddEventListener(GameEvent gameEvent, UnityAction value)
+    internal static void AddEventListener(GameEvent gameEvent, UnityAction value)
     {
       if (!gameEvents.ContainsKey(gameEvent))
       {
@@ -18,7 +18,7 @@ namespace FredericRP.EventManagement
       gameEvents[gameEvent] = (UnityAction)gameEvents[gameEvent] + value;
     }
 
-    public static void AddEventListener<T>(GameEvent gameEvent, UnityAction<T> handler)
+    internal static void AddEventListener<T>(GameEvent gameEvent, UnityAction<T> handler)
     {
       if (!gameEvents.ContainsKey(gameEvent))
       {
@@ -28,7 +28,7 @@ namespace FredericRP.EventManagement
       gameEvents[gameEvent] = (UnityAction<T>)gameEvents[gameEvent] + handler;
     }
 
-    public static void AddEventListener<T, U>(GameEvent gameEvent, UnityAction<T, U> handler)
+    internal static void AddEventListener<T, U>(GameEvent gameEvent, UnityAction<T, U> handler)
     {
       if (!gameEvents.ContainsKey(gameEvent))
       {
@@ -37,7 +37,7 @@ namespace FredericRP.EventManagement
 
       gameEvents[gameEvent] = (UnityAction<T, U>)gameEvents[gameEvent] + handler;
     }
-    public static void AddEventListener<T, U, V>(GameEvent gameEvent, UnityAction<T, U, V> handler)
+    internal static void AddEventListener<T, U, V>(GameEvent gameEvent, UnityAction<T, U, V> handler)
     {
       if (!gameEvents.ContainsKey(gameEvent))
       {
@@ -47,7 +47,7 @@ namespace FredericRP.EventManagement
       gameEvents[gameEvent] = (UnityAction<T, U, V>)gameEvents[gameEvent] + handler;
     }
 
-    public static void RemoveEventListener(GameEvent gameEvent, UnityAction handler)
+    internal static void RemoveEventListener(GameEvent gameEvent, UnityAction handler)
     {
       Delegate eventDelegate;
 
@@ -57,7 +57,7 @@ namespace FredericRP.EventManagement
       }
     }
 
-    public static void RemoveEventListener<T>(GameEvent gameEvent, UnityAction<T> handler)
+    internal static void RemoveEventListener<T>(GameEvent gameEvent, UnityAction<T> handler)
     {
       Delegate eventDelegate;
 
@@ -67,7 +67,7 @@ namespace FredericRP.EventManagement
       }
     }
 
-    public static void RemoveEventListener<T, U>(GameEvent gameEvent, UnityAction<T, U> handler)
+    internal static void RemoveEventListener<T, U>(GameEvent gameEvent, UnityAction<T, U> handler)
     {
       Delegate eventDelegate;
 
@@ -76,7 +76,7 @@ namespace FredericRP.EventManagement
         gameEvents[gameEvent] = (UnityAction<T, U>)gameEvents[gameEvent] - handler;
       }
     }
-    public static void RemoveEventListener<T, U, V>(GameEvent gameEvent, UnityAction<T, U, V> handler)
+    internal static void RemoveEventListener<T, U, V>(GameEvent gameEvent, UnityAction<T, U, V> handler)
     {
       Delegate eventDelegate;
 
@@ -86,7 +86,7 @@ namespace FredericRP.EventManagement
       }
     }
 
-    public static bool TriggerEvent(GameEvent gameEvent)
+    internal static bool TriggerEvent(GameEvent gameEvent)
     {
       Delegate eventDelegate;
 
@@ -105,7 +105,7 @@ namespace FredericRP.EventManagement
       return false;
     }
 
-    public static bool TriggerEvent<T>(GameEvent gameEvent, T value)
+    internal static bool TriggerEvent<T>(GameEvent gameEvent, T value)
     {
       Delegate eventDelegate;
 
@@ -126,7 +126,7 @@ namespace FredericRP.EventManagement
       return false;
     }
 
-    public static bool TriggerEvent<T, U>(GameEvent gameEvent, T value, U secondValue)
+    internal static bool TriggerEvent<T, U>(GameEvent gameEvent, T value, U secondValue)
     {
       Delegate eventDelegate;
 
@@ -147,7 +147,7 @@ namespace FredericRP.EventManagement
 
       return false;
     }
-    public static bool TriggerEvent<T, U, V>(GameEvent gameEvent, T value, U secondValue, V thirdValue)
+    internal static bool TriggerEvent<T, U, V>(GameEvent gameEvent, T value, U secondValue, V thirdValue)
     {
       Delegate eventDelegate;
 

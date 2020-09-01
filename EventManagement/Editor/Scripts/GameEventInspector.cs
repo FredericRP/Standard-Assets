@@ -11,7 +11,7 @@ namespace FredericRP.EventManagement
             GUILayout.Label("GameEvent: " + serializedObject.targetObject.name);
             if (GUILayout.Button("RAISE"))
             {
-                EventHandler.TriggerEvent(serializedObject.targetObject as GameEvent);
+                (serializedObject.targetObject as GameEvent).Raise();
             }
         }
     }

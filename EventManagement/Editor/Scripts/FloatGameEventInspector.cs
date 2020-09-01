@@ -16,7 +16,7 @@ namespace FredericRP.EventManagement
         EditorGUILayout.HelpBox("Float Game Event should have a parameter property", MessageType.Error);
       if (GUILayout.Button("RAISE"))
       {
-        EventHandler.TriggerEvent<float>(serializedObject.targetObject as GameEvent, parameter.floatValue);
+        (serializedObject.targetObject as GameEvent).Raise<float>(parameter.floatValue);
       }
       if (serializedObject.hasModifiedProperties)
         serializedObject.ApplyModifiedProperties();

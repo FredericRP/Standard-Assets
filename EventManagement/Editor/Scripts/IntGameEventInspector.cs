@@ -16,7 +16,7 @@ namespace FredericRP.EventManagement
         EditorGUILayout.HelpBox("Int Game Event should have a parameter property", MessageType.Error);
       if (GUILayout.Button("RAISE"))
       {
-        EventHandler.TriggerEvent<int>(serializedObject.targetObject as GameEvent, parameter.intValue);
+        (serializedObject.targetObject as GameEvent).Raise<int>(parameter.intValue);
       }
       if (serializedObject.hasModifiedProperties)
         serializedObject.ApplyModifiedProperties();
