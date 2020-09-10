@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 namespace FredericRP.EventManagement
 {
-  public class EventHandler
+  public class GameEventHandler
   {
     private static Dictionary<GameEvent, Delegate> gameEvents = new Dictionary<GameEvent, Delegate>();
 

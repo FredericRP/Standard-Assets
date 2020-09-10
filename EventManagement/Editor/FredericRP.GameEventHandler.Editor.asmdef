@@ -1,7 +1,11 @@
 {
-    "name": "FredericRP.EventHandler.Runtime",
-    "references": [],
-    "includePlatforms": [],
+    "name": "FredericRP.GameEventHandler.Editor",
+    "references": [
+        "GUID:4465702d419896044ad684462c9fa7c9"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

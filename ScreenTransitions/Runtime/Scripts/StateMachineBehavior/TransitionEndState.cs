@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace FredericRP.Transition
+namespace FredericRP.ScreenTransitions
 {
 
   public class TransitionEndState : StateMachineBehaviour

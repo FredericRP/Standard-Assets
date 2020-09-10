@@ -11,7 +11,7 @@ namespace FredericRP.EventManagement
 
     public override void Raise()
     {
-      EventHandler.TriggerEvent<float>(this, parameter);
+      GameEventHandler.TriggerEvent<float>(this, parameter);
     }
   }
 }

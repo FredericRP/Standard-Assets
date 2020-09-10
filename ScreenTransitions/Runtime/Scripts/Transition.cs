@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 #endif
 
-namespace FredericRP.Transition
+namespace FredericRP.ScreenTransitions
 {
   public class Transition : MonoBehaviour
   {
