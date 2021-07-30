@@ -166,7 +166,7 @@ Tips are exported as AssetBundles.
 
 ![Tips in loading scene](Tips/Documentation~/images/async-loading.jpg)
 
-## Transition
+## ScreenTransitions
 
 Between scenes, to hide loading time or simply make a smooth transition, you have to show a transition screen. Those two prefabs allow you to call the transition to be shown or hidden.
 
@@ -174,7 +174,7 @@ Subscribe to its events (TransitionShown and TransitionHidden) to know when you 
 
 > *Requires the EventHandler and Singleton.*
 
-![how it is supposed to work](Transition/Documentation~/images/transition_schema.jpg)
+![how it is supposed to work](ScreenTransitions/Documentation~/images/transition_schema.jpg)
 
 ### Demo
 
@@ -184,7 +184,7 @@ A demo is present under the Sample folder.
 2. Click the Play button
 3. In the editor, use the [S] key to show the transition, and the [H] key to hide it.
 
-![demo](Transition/Documentation~/images/transition_demo.gif)
+![demo](ScreenTransitions/Documentation~/images/transition_demo.gif)
 
 
 # That's all folks !
