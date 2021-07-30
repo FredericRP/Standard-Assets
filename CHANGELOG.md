@@ -3,10 +3,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [Unreleased]
+## Unreleased
+
+
+
+## [1.2.2] - 2021-07-30
 
 ### Added
 - NEW: supporting two and three arguments for event handling
+- NEW: ability to use either a global GameEventHandler or multiple ones
 
 ### Changed
 - MOD: Transition namespace has been renamed to ScreenTransitions to prevent namespace conflicting with Transition class

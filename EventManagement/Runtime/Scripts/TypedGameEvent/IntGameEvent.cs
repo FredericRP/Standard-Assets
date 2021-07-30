@@ -9,9 +9,12 @@ namespace FredericRP.EventManagement
   {
     public int parameter;
 
-    public override void Raise()
+    public override void Raise(GameEventHandler eventHandler = null)
     {
-      GameEventHandler.TriggerEvent<int>(this, parameter);
+      if (eventHandler == null)
+        GameEventHandler.TriggerEvent<int>(this, parameter);
+      else
+        eventHandler.TriggerInstanceEvent<int>(this, parameter);
     }
   }
 }
