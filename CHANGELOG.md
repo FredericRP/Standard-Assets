@@ -5,8 +5,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Unreleased
 
+### Deprecated
+- This changelog will not be updated anymore, each package has its own changelog from now on.
+
+### Changed
+- Do not use GUIDs for assembly references to make it clearer if an assembly is not found
+
 ### Fixed
-- FIX: links to images for Transition sub package on README
+- Popups: Debug messages are enabled only when UNITY_EDITOR and DEBUG are defined
+- Singleton: removed the server tag in package.json to comply with unity package manifest standard
+- Singleton: Debug messages are enabled only when UNITY_EDITOR and DEBUG are defined
+- ScreenTransitions: Debug messages are enabled only when UNITY_EDITOR and DEBUG are defined
+- links to images for Transition sub package on README
 
 ## [1.2.2] - 2021-07-30
 

@@ -7,6 +7,7 @@ The popup manager allows to show and hide popups, and handle going back and fort
 
 ## Usage
 
+### Basics
 Follow these steps to have a complete system:
 
 1. Add the **PopupHandler prefab into a Canvas** and change its RectTransform to choose where popups will all be located.
@@ -33,11 +34,11 @@ PopupHandler.ShowPopup(popup);
 PopupHandler.CloseAllPopups();
 ```
 
-## Advanced
+### Advanced
 
 Every popup should have the PopupBase component at its root. It allows to get parameters specified when showing a popup. If you need specific parameters, you can inherit from this class.
 
-When showing a new popup, the system also checks the parameters. If the popup **and** the parameters are identical, it does not do anything. Otherwise, it creates and show the new popup.
+When showing a new popup, the system also checks the parameters. If the popup **and** the parameters are identical to the one already displayed, it does not do anything. Otherwise, it creates and show the new popup.
 
 You can have a specific pool for your popups. The pool id is specified in the PopupHandler behaviour.
 

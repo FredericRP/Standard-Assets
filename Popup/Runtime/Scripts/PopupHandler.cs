@@ -8,7 +8,6 @@ using UnityEngine.InputSystem;
 
 namespace FredericRP.Popups
 {
-
   public class PopupHandler : Singleton<PopupHandler>
   {
     [SerializeField]
@@ -121,7 +120,9 @@ namespace FredericRP.Popups
 
       // Create the new popup from object pool
       PopupBase popupObject = (objectPool.GetFromPool(popup.pooledObjectName) as GameObject).GetComponent<PopupBase>();
+#if UNITY_EDITOR && DEBUG
       Debug.Log("Pooled " + popup.pooledObjectName + " => " + popupObject.name);
+#endif
       // ensure new popup is above previous one
       if (currentPopup != null)
         popupObject.Canvas.sortingOrder = currentPopup.Canvas.sortingOrder + 1;

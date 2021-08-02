@@ -1,5 +1,6 @@
 {
     "name": "FredericRP.Singleton.Runtime",
+    "rootNamespace": "",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

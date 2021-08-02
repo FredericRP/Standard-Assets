@@ -7,7 +7,7 @@ This bucket generator provides an easy way for random round robin algorithm.
 
 ## Usage
 
-Instantiate a new BucketGenerator and call GetRandomNumber to obtain a number from the bucket.
+Instantiate a new BucketGenerator and call *GetRandomNumber* to obtain a number from the bucket.
 
 ### Demo
 A demo scene is present under the Sample folder.

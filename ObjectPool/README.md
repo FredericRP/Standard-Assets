@@ -1,11 +1,11 @@
 # Object Pool & Inspector
 
 Use ObjectPool to instantiate game objects during loading time and not during gameplay.
-This version allows you to have multiple pools in your game.
+This version allows you to have multiple pools in your game, so you can have a global one that won't be destroyed between scenes, and some level-specific ones.
 
 ![object pool inspector](Documentation~/images/object_pool.png)
 
-## Usage
+### Usage
 
 1. Put the ObjectPool script in a game object that won't be destroyed during your game, and add the prefabs you want in the list in the inspector. Set the buffered amount, the default parent *(optional)*, and you're set.
 2. To retrieve an already instantiated game object and use it in your game, use
@@ -18,4 +18,4 @@ ObjectPool.GetObjectPool("mypool").GetFromPool("myPrefabName")
 ObjectPool.GetObjectPool("mypool").Pool(usedObject)
 ```
 
-> Attach DontDestroyOnLoad script on the same Game Object
+> *To get it persistent between scenes attach a DontDestroyOnLoad script on the same Game Object.*

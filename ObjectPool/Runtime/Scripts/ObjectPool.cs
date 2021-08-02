@@ -370,7 +370,6 @@ namespace FredericRP.ObjectPooling
 
 #if UNITY_EDITOR
     // Utility methods when in the editor
-
     [ContextMenu("Pool inactive objects")]
     public void PoolInactiveObjects()
     {

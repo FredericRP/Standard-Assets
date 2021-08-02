@@ -10,5 +10,3 @@ A simple local loader for asset bundles and an editor window that allows to expo
 4. Click on Export button to create the asset bundles
 5. Move them to the StreamingAssets root folder
 6. Load them using the LocalLoader script
-
-Remote bundles will be managed in a future release.

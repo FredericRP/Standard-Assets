@@ -1,6 +1,6 @@
 # Transition
 
-Between scenes, to hide loading time or simply make a smooth transition, you have to show a transition screen. Those two prefabs allow you to call the transition to be shown or hidden.
+Between scenes, to hide loading time or simply make a smooth transition, you have to show a transition screen. Those prefabs allow you to call the transition to be shown or hidden.
 
 Subscribe to its events (TransitionShown and TransitionHidden) to know when you can load something behind the players back.
 
@@ -21,7 +21,7 @@ There are two types of transition:
 3. Do whatever you want behind the player's back
 4. Call Transition.Hide()
 
-Optionnal : subscribe to the game events to trigger at the right time what you want to do.
+Optionnal: subscribe to the game events to trigger at the right time what you want to do.
 
 ### Demo
 

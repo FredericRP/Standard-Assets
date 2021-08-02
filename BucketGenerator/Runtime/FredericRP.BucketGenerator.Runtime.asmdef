@@ -1,5 +1,6 @@
 {
     "name": "FredericRP.BucketGenerator.Runtime",
+    "rootNamespace": "",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -6,7 +6,6 @@
   "unity": "2020.1",
   "unityRelease": "0f1",
   "custom": {
-  "server": "git@github.com:FredericRP"
   "dependencies": {
 	"com.fredericrp.assetbundle": "1.0.0"
 	}

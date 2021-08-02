@@ -1,5 +1,6 @@
 {
     "name": "FredericRP.AssetBundleTool.Runtime",
+    "rootNamespace": "",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

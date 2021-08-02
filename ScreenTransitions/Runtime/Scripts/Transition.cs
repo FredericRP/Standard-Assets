@@ -62,7 +62,9 @@ namespace FredericRP.ScreenTransitions
     }
     public void Show()
     {
+#if UNITY_EDITOR && DEBUG
       Debug.Log(gameObject.name + " > Showing");
+#endif
       animator?.SetBool("visible", true);
     }
 
@@ -74,7 +76,9 @@ namespace FredericRP.ScreenTransitions
 
     public void Hide()
     {
+#if UNITY_EDITOR && DEBUG
       Debug.Log(gameObject.name + " > Hiding");
+#endif
       animator?.SetBool("visible", false);
     }
 

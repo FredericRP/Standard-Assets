@@ -6,6 +6,7 @@
   "unity": "2020.1",
   "unityRelease": "0f1",
   "dependencies": {
+	  "com.fredericrp.singleton": "1.0.0"
  },
  "keywords": [
     "standard assets"

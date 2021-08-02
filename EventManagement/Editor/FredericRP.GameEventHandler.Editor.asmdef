@@ -1,7 +1,8 @@
 {
     "name": "FredericRP.GameEventHandler.Editor",
+    "rootNamespace": "",
     "references": [
-        "GUID:4465702d419896044ad684462c9fa7c9"
+        "FredericRP.GameEventHandler.Runtime"
     ],
     "includePlatforms": [
         "Editor"

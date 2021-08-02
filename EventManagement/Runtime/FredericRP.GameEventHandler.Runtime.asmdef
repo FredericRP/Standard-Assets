@@ -2,7 +2,7 @@
     "name": "FredericRP.GameEventHandler.Runtime",
     "rootNamespace": "",
     "references": [
-        "GUID:da3aa5d86c17e4b409c62a078b3f43b8"
+        "FredericRP.Singleton.Runtime"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
