@@ -20,14 +20,14 @@ From your usual git interface or command line, just add the submodule in a subfo
 ## Available packages
 Each package can be found in its sub folder:
 
-- [Asset bundle tool](tree/primary/AssetBundleTool)
-- [Bucket (or bean bag) generator](tree/primary/BucketGenerator)
-- [Event management](tree/primary/EventManagement)
-- [Object pool and its inspector](tree/primary/ObjectPool)
-- [Popups manager](tree/primary/Popup)
-- [Screen transitions](tree/primary/ScreenTransitions)
-- [Generic Singleton](tree/primary/Singleton)
-- [Tips display](tree/primary/Tips)
+- [Asset bundle tool](https://github.com/FredericRP/Standard-Assets/tree/primary/AssetBundleTool)
+- [Bucket (or bean bag) generator](./tree/primary/BucketGenerator)
+- [Event management](./tree/primary/EventManagement)
+- [Object pool and its inspector](./tree/primary/ObjectPool)
+- [Popups manager](./tree/primary/Popup)
+- [Screen transitions](./tree/primary/ScreenTransitions)
+- [Generic Singleton](./tree/primary/Singleton)
+- [Tips display](./tree/primary/Tips)
 
 # That's all folks !
 
