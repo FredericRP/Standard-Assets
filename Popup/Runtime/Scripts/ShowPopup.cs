@@ -5,9 +5,9 @@ namespace FredericRP.Popups
 	public class ShowPopup : MonoBehaviour
 	{
 		[SerializeField]
-		PopupDescriptor popup = null;
+		protected PopupDescriptor popup = null;
 
-		public void DisplayPopup()
+		public virtual void DisplayPopup()
 		{
 			PopupHandler.ShowPopup(popup);
     }

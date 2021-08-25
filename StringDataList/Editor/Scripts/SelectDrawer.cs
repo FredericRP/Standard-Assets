@@ -43,13 +43,16 @@ namespace FredericRP.StringDataList
           property.stringValue = list[newSelectedIndex];
         Color previousGuiColor = GUI.color;
         GUI.color = Color.red;
-        if (GUI.Button(buttonRect, "0"))
+        if (GUI.Button(buttonRect, "x", EditorStyles.miniButton))
         {
           property.stringValue = null;
         }
         GUI.color = previousGuiColor;
 
         EditorGUI.indentLevel = previousIndentLevel;
+      } else
+      {
+        property.stringValue = EditorGUI.TextField(valueRect, property.stringValue);
       }
       property.serializedObject.ApplyModifiedProperties();
       // */

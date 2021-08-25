@@ -6,7 +6,11 @@ For 1.2.2 release and previous ones, this is a copy/paste from FredericRP's Stan
 
 ## Unreleased
 
+### Fixed
+- Dependencies and version in package
+
 ### Changed
+- Using new GenericSingleton namespace
 - Do not use GUIDs for assembly references to make it clearer if an assembly is not found
 
 ## [1.2.2] - 2021-07-30

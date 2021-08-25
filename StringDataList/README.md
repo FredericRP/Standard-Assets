@@ -1,6 +1,6 @@
 # String data list
 
-Let say you want to allow your designer to edit some string properties in your project (you, fool) but there are only a limited amount of allowed strings, like characters names, seasons or anything.
+Let say you want to allow your designer to edit some string properties in your project (you, fool) but there are only a limited amount of allowed strings, like characters names, seasons or anything, and for whatever reason, you don't want or cannot use enums.
 Or maybe you have a list of data, and you don't want to have a "name" property of each data nor you want the list to display "Element 0", "Element 1", but instead you want to use your own names: for instance "Cat, dog, unicorn, etc".
 
 This is the asset for you.

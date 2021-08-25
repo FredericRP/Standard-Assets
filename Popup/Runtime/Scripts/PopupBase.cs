@@ -18,6 +18,16 @@ namespace FredericRP.Popups
 			set { parameters = value; }
 		}
 
+		protected object GetParameter(int index)
+		{
+			if (parameters == null || !parameters.GetType().Equals(typeof(object[])))
+				return null;
+			object[] parameterArray = (object[])parameters;
+			if (parameterArray?.Length > index && index >= 0)
+				return parameterArray[index];
+			return null;
+		}
+
 		public bool IsVisible { get { return visible; } }
 		public Canvas Canvas { get { return canvas; } }
 
@@ -32,6 +42,11 @@ namespace FredericRP.Popups
 			animator.SetBool("visible", true);
 
 			visible = true;
+		}
+
+		public void Close()
+		{
+			PopupHandler.ClosePopup();
 		}
 
 		/// <summary>

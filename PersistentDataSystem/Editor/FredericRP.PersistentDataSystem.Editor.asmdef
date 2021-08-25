@@ -1,0 +1,17 @@
+{
+    "name": "FredericRP.PersistentDataSystem.Editor",
+    "rootNamespace": "",
+    "references": [
+        "FredericRP.PersistentDataSystem.Runtime",
+        "FredericRP.Singleton.Runtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

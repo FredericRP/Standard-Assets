@@ -1,0 +1,22 @@
+{
+  "name": "com.fredericrp.gamequest",
+  "version": "1.0.0",
+  "displayName": "FRP Game Quest",
+  "description": "GameQuest provides an easy way to create quests for a game, and the management of them.",
+  "unity": "2020.1",
+  "unityRelease": "0f1",
+  "dependencies": {
+	  "com.fredericrp.singleton": "1.3.0",
+	  "com.fredericrp.persistentdatasystem": "1.0.0",
+	  "com.fredericrp.eventhandler": "1.3.0",
+	  "com.unity.localization": "1.0.0-pre.10"
+ },
+ "keywords": [
+    "standard assets"
+  ],
+  "author": {
+    "name": "FredericRP",
+    "email": "unity@FredericRP.com",
+    "url": "https://FredericRP.com"
+  }
+}

@@ -7,9 +7,11 @@ For 1.2.2 release and previous ones, this is a copy/paste from FredericRP's Stan
 ## Unreleased
 
 ### Changed
+- The namespace to GenericSingleton
 - Do not use GUIDs for assembly references to make it clearer if an assembly is not found
 
 ### Fixed
+- preparing next release: package version
 - Singleton: removed the server tag in package.json to comply with unity package manifest standard
 - Singleton: Debug messages are enabled only when UNITY_EDITOR and DEBUG are defined
 

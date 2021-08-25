@@ -1,0 +1,17 @@
+{
+    "name": "FredericRP.PersistentDataSystem.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "FredericRP.Singleton.Runtime",
+        "FredericRP.StringDataList.Runtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

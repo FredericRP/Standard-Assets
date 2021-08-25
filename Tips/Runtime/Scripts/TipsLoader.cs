@@ -1,5 +1,6 @@
 ﻿using FredericRP.AssetBundleTool;
 using FredericRP.BucketGenerator;
+using FredericRP.GenericSingleton;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

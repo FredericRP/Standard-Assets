@@ -6,10 +6,17 @@ For 1.2.2 release and previous ones, this is a copy/paste from FredericRP's Stan
 
 ## Unreleased
 
+### Added
+- Ability to use prefab directly from popup descriptor, and custom editor
+- GetParameter helper to get an indexed parameter for popups
+- Close function from popup to be able to link unity events from a popup gameobject
+
 ### Changed
 - Do not use GUIDs for assembly references to make it clearer if an assembly is not found
 
 ### Fixed
+- version in package, preparing next release
+- singleton package version
 - Popups: Debug messages are enabled only when UNITY_EDITOR and DEBUG are defined
 
 ## [1.2.2] - 2021-07-30

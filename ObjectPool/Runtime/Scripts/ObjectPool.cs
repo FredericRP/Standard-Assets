@@ -22,7 +22,7 @@ namespace FredericRP.ObjectPooling
 
     public static ObjectPool GetObjectPool(string id)
     {
-      return objectPoolList.Find(element => element.id.Equals(id));
+      return objectPoolList?.Find(element => element.id.Equals(id));
     }
 
     private void OnEnable()
