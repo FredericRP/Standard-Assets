@@ -15,13 +15,17 @@ MonoBehaviour:
   gameQuestInfoList:
   - gameQuestID: 1
     localizationId: 1
-    month: 8
-    dayInMonth: -1
-    year: -1
+    month: 0
+    dayInMonth: 16
+    year: 2023
     duration: 120
-  - gameQuestID: 2
-    localizationId: 2
-    month: 7
-    dayInMonth: -1
-    year: -1
-    duration: 60
+    target: 5
+    targetId: 0
+  - gameQuestID: 1
+    localizationId: 1
+    month: 3
+    dayInMonth: 2
+    year: 2021
+    duration: 120
+    target: 5
+    targetId: 0

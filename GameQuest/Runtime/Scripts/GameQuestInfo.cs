@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using FredericRP.StringDataList;
+using UnityEngine;
 
 namespace FredericRP.GameQuest
 {
@@ -33,6 +34,7 @@ namespace FredericRP.GameQuest
     /// <summary>
     /// What does the target represents? Link that to your favorite Enum or own IDs in game
     /// </summary>
+    [Select("QuestTarget")]
     public int targetId;
 
     public GameQuestReward gameQuestReward;

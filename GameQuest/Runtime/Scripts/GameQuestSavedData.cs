@@ -17,20 +17,22 @@ namespace FredericRP.GameQuest
     /// </summary>
     public enum GameQuestStatus { Locked, WaitingForEnable, Enabled, InProgress, WaitingForReward, Complete };
 
+    [System.NonSerialized]
+    const string dateTimeFormat = "dd/MM/yyyy HH:mm";
+    [System.NonSerialized]
+    static CultureInfo dateTimeProvider = CultureInfo.InvariantCulture;
+
     [System.Serializable]
     public class QuestProgress
     {
       public string gameQuestId;
+      [SerializeField]
       protected string launchDate;
+      public System.DateTime LaunchDate { get { return String.IsNullOrEmpty(launchDate) ? System.DateTime.Now : System.DateTime.ParseExact(launchDate, dateTimeFormat, dateTimeProvider ); } set { launchDate = value.ToString(dateTimeFormat); } }
       public LaunchMode launchMode;
       public GameQuestStatus gameQuestStatus;
       public int currentProgress;
 
-      [System.NonSerialized]
-      const string dateTimeFormat = "dd/MM/yyyy HH:mm";
-      [System.NonSerialized]
-      CultureInfo dateTimeProvider = CultureInfo.InvariantCulture;
-      public System.DateTime LaunchDate { get { return String.IsNullOrEmpty(launchDate) ? System.DateTime.Now : System.DateTime.ParseExact(launchDate, dateTimeFormat, dateTimeProvider ); } set { launchDate = value.ToString(dateTimeFormat); } }
 
       public QuestProgress(string _gameQuestID, System.DateTime _launchDate, LaunchMode _gameQuestLaunchMode, GameQuestStatus _gameQuestStatus)
       {
@@ -61,7 +63,9 @@ namespace FredericRP.GameQuest
     /// </summary>
     [SerializeField]
     List<QuestProgress> questProgressList = new List<QuestProgress>();
-
+    [SerializeField]
+    protected string lastCheckDate;
+    public System.DateTime LastCheckedDate { get { return String.IsNullOrEmpty(lastCheckDate) ? System.DateTime.Now : System.DateTime.ParseExact(lastCheckDate, dateTimeFormat, dateTimeProvider); } set { lastCheckDate = value.ToString(dateTimeFormat); } }
     public override void onDataCreated(string dataVersion)
     {
       base.onDataCreated(dataVersion);

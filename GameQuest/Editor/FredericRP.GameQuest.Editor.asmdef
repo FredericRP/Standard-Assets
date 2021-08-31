@@ -1,9 +1,8 @@
 {
-    "name": "FredericRP.PersistentDataSystem.Editor",
+    "name": "FredericRP.GameQuest.Editor",
     "rootNamespace": "",
     "references": [
-        "FredericRP.PersistentDataSystem.Runtime",
-        "FredericRP.Singleton.Runtime"
+        "FredericRP.GameQuest.Runtime"
     ],
     "includePlatforms": [
         "Editor"

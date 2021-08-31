@@ -8,7 +8,12 @@ namespace FredericRP.StringDataList
   [CustomPropertyDrawer(typeof(SelectAttribute))]
   public class SelectDrawer : PropertyDrawer
   {
-    // Draw the property inside the given rect
+    /// <summary>
+    /// Draw the property inside the given rect
+    /// </summary>
+    /// <param name="position"></param>
+    /// <param name="property"></param>
+    /// <param name="label"></param>
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
       // Using BeginProperty / EndProperty on the parent property means that
@@ -33,24 +38,37 @@ namespace FredericRP.StringDataList
       if (list.Count > 0)
       {
         int selectedIndex = -1;
-        selectedIndex = list.FindIndex(element => element.Equals(property.stringValue, StringComparison.InvariantCulture));
+        // Assume property is either a string representing value or an int representing the index in the list
+        if (property.propertyType == SerializedPropertyType.String)
+          selectedIndex = list.FindIndex(element => element.Equals(property.stringValue, StringComparison.InvariantCulture));
+        else
+          selectedIndex = property.intValue;
         int previousIndentLevel = EditorGUI.indentLevel;
         EditorGUI.indentLevel = 0;
         EditorGUI.BeginChangeCheck();
 
         int newSelectedIndex = EditorGUI.Popup(valueRect, selectedIndex, list.ToArray());
         if (EditorGUI.EndChangeCheck())
-          property.stringValue = list[newSelectedIndex];
+        {
+          if (property.propertyType == SerializedPropertyType.String)
+            property.stringValue = list[newSelectedIndex];
+          else
+            property.intValue = newSelectedIndex;
+        }
         Color previousGuiColor = GUI.color;
         GUI.color = Color.red;
         if (GUI.Button(buttonRect, "x", EditorStyles.miniButton))
         {
-          property.stringValue = null;
+          if (property.propertyType == SerializedPropertyType.String)
+            property.stringValue = null;
+          else
+            property.intValue = -1;
         }
         GUI.color = previousGuiColor;
 
         EditorGUI.indentLevel = previousIndentLevel;
-      } else
+      }
+      else
       {
         property.stringValue = EditorGUI.TextField(valueRect, property.stringValue);
       }

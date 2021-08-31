@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
 using UnityEditor;
-using System.Collections.Generic;
-using UnityEditor.Compilation;
 using System;
 using System.Text.RegularExpressions;
 using UnityEditor.Callbacks;

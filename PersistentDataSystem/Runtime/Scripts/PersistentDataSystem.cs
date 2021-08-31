@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System;
 using FredericRP.StringDataList;
 using FredericRP.GenericSingleton;
+using System.Reflection;
 
 namespace FredericRP.PersistentData
 {
@@ -175,15 +176,44 @@ namespace FredericRP.PersistentData
       }
       else
       {
-        foreach (string i in classToLoad)
+        foreach (string typeName in classToLoad)
         {
-          Type type = Type.GetType(i);
-
-          LoadSavedData(type, saveType);
+          Type type = Type.GetType(typeName);
+          if (type == null)
+          {
+            string assemblyName = typeName.Substring(0, typeName.LastIndexOf('.'));
+            // Use qualified name to retrieve assembly name and load it
+            type = TryLoadType(assemblyName, typeName);
+            // but with unity packages, it can fail to load it, try "sub" assemblies instead: Runtime and Editor
+            if (type == null)
+              type = TryLoadType(assemblyName + ".Runtime", typeName);
+            if (type == null)
+              type = TryLoadType(assemblyName + ".Editor", typeName);
+          }
+          if (type != null)
+            LoadSavedData(type, saveType);
+          else
+            Debug.Log("LoadSavedData > " + type + " from " + typeName);
         }
       }
 
       return true;
+    }
+
+    /// <summary>
+    /// Try to load a type from assembly and a type names
+    /// </summary>
+    /// <param name="assemblyName"></param>
+    /// <param name="typeName"></param>
+    /// <returns>the type if found, null otherwise</returns>
+    protected Type TryLoadType(string assemblyName, string typeName)
+    {
+      try
+      {
+        Assembly requiredAssembly = Assembly.Load(assemblyName);
+        return requiredAssembly?.GetType(typeName);
+      } catch(Exception) { }
+      return null;
     }
 
 

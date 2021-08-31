@@ -5,7 +5,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Unreleased
 
-
 ### Fixed
 - added the assemblies for this new package
 - moved Drawers in Editor folder
@@ -15,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - First publish of this new package: a helper for designers in Unity
 
 ### Changed
+- Property can be a string representing the same string in the list or the indexed value of the string
 
 ### Deprecated
 

@@ -2,17 +2,35 @@
 using FredericRP.PersistentData;
 using FredericRP.GenericSingleton;
 using FredericRP.EventManagement;
+using System;
+using UnityEngine.Events;
 
 namespace FredericRP.GameQuest
 {
   public class GameQuestManager : Singleton<GameQuestManager>
   {
-    public class GameQuestEvent : GameEvent<GameQuestInfo, GameQuestSavedData.QuestProgress, object> { }
+    /// <summary>
+    /// Simplify the call to generic methods of GameEvent
+    /// </summary>
+    public class GameQuestEvent : GameEvent
+    {
+      public void Raise(GameQuestInfo info, GameQuestSavedData.QuestProgress questProgress, GameEventHandler eventHandler = null) =>
+        Raise<GameQuestInfo, GameQuestSavedData.QuestProgress>(info, questProgress, eventHandler);
+    }
+
+    /// <summary>
+    /// Simplify the call to generic methods of GameEvent
+    /// </summary>
+    public class GameQuestRewardEvent : GameEvent
+    {
+      public void Raise(GameQuestReward questReward, GameEventHandler eventHandler = null) =>
+        Raise<GameQuestReward>(questReward, eventHandler);
+    }
     public static GameQuestEvent onGameQuestLaunch;
     public static GameQuestEvent onGameQuestCompleted;
     public static GameQuestEvent onGameQuestExpired;
     public static GameQuestEvent onGameQuestActivated;
-    public static GameEvent<GameQuestReward> onRewardObtained; // Action<GameQuestReward>
+    public static GameQuestRewardEvent onRewardObtained;
 
     [SerializeField]
     GameQuestCatalog gameQuestArray;

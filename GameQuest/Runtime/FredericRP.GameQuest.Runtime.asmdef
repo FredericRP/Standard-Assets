@@ -6,7 +6,8 @@
         "FredericRP.PersistentDataSystem.Runtime",
         "FredericRP.GameEventHandler.Runtime",
         "FredericRP.Popups.Runtime",
-        "Unity.Localization"
+        "Unity.Localization",
+        "FredericRP.StringDataList.Runtime"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

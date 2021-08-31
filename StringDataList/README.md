@@ -1,9 +1,10 @@
 # String data list
 
+It's a kind of dynamic enum enabler.
 Let say you want to allow your designer to edit some string properties in your project (you, fool) but there are only a limited amount of allowed strings, like characters names, seasons or anything, and for whatever reason, you don't want or cannot use enums.
 Or maybe you have a list of data, and you don't want to have a "name" property of each data nor you want the list to display "Element 0", "Element 1", but instead you want to use your own names: for instance "Cat, dog, unicorn, etc".
 
-This is the asset for you.
+This is the asset for you. You can store the value as a string or an integer and display it as a string picked in an existing external list.
 
 ![Customise names of elements in an array](Documentation~/images/list-naming.jpg)
 
@@ -23,7 +24,7 @@ In those examples, there would be a characters.txt file and a season.txt file.
 
 1. Create a TXT file in a Resources/datalist folder in your project, named after the data your want to enter
 2. Add one line per data
-3. Add the [Select] attribute on a string property to be able to enter a string only from that file content as below
+3. Add the [Select] attribute on a string (or an int) property to be able to enter a string only from that file content as below
 
  ```C#
  [SerializeField]
@@ -32,6 +33,8 @@ In those examples, there would be a characters.txt file and a season.txt file.
   ```
 
 ![demo](Documentation~/images/string-select.jpg)
+
+**Caution**: if you use an int field, the value will still be the same integer even if you change the lines TXT file! (order of lines and/or content)
 
 ### List element customisation
 

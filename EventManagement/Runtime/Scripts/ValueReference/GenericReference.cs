@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 
-public abstract class GenericReference<T> : ScriptableObject
+namespace FredericRP.EventManagement
 {
-  public T value;
+  public abstract class GenericReference<T> : ScriptableObject
+  {
+    public T value;
+  }
 }

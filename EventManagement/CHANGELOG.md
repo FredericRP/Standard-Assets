@@ -8,6 +8,10 @@ For 1.2.2 release and previous ones, this is a copy/paste from FredericRP's Stan
 
 ### Changed
 - Do not use GUIDs for assembly references to make it clearer if an assembly is not found
+- Added virtual to GameEvent methods to allow override
+
+### Fixed
+- Added namespace for value reference children classes
 
 ## [1.2.2] - 2021-07-30
 
