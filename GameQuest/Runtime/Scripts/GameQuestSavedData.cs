@@ -12,10 +12,10 @@ namespace FredericRP.GameQuest
     public enum LaunchMode { Immediate, OnUserAction };
 
     /// <summary>
-    /// A quest can be locked, waiting for activation (unlocked but user has to activate it), activated (but not necessarily) launched, in progress, ended and waiting for the user to get its reward,
+    /// A quest can be locked, waiting for activation (unlocked but user has to activate it), in progress, ended and waiting for the user to get its reward,
     /// or complete (reward has been dispatched)
     /// </summary>
-    public enum GameQuestStatus { Locked, WaitingForEnable, Enabled, InProgress, WaitingForReward, Complete };
+    public enum GameQuestStatus { Locked, WaitingForEnable, InProgress, WaitingForReward, Complete };
 
     [System.NonSerialized]
     const string dateTimeFormat = "dd/MM/yyyy HH:mm";
@@ -75,7 +75,7 @@ namespace FredericRP.GameQuest
       dataName = "GameQuestSavedData";
     }
 
-    QuestProgress GetQuestProgress(string gameQuestId, bool includeComplete = true)
+    public QuestProgress GetQuestProgress(string gameQuestId, bool includeComplete = true)
     {
       return questProgressList.Find(quest => quest.gameQuestId == gameQuestId && quest.gameQuestStatus != GameQuestStatus.Locked && (includeComplete ? true : quest.gameQuestStatus != GameQuestStatus.Complete));
     }

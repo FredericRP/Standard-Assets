@@ -1,10 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System;
-using System.Globalization;
 using FredericRP.Popups;
 using UnityEngine.Localization;
-using UnityEngine.Localization.Tables;
 
 namespace FredericRP.GameQuest
 {
@@ -23,7 +21,7 @@ namespace FredericRP.GameQuest
     [SerializeField]
     Text statusText;
 
-    private GameQuestInfo gameQuestInfo;
+    private GameQuestInfo questInfo;
     private GameQuestSavedData.QuestProgress questProgress;
 
     [Header("Links")]
@@ -49,7 +47,7 @@ namespace FredericRP.GameQuest
     Sprite unvalidedQuestSprite;
 
     [SerializeField]
-    Sprite notUnlockedQuestSprite;
+    Sprite lockedQuestSprite;
 
     [SerializeField]
     Sprite waitGetRewardQuestSprite;
@@ -71,41 +69,24 @@ namespace FredericRP.GameQuest
     }
     public void Init(GameQuestInfo gameQuestInfo, GameQuestSavedData.QuestProgress questProgress)
     {
-      this.gameQuestInfo = gameQuestInfo;
+      this.questInfo = gameQuestInfo;
       this.questProgress = questProgress;
 
       titleText.text = stringTable.GetTable().GetEntry("quest." + gameQuestInfo.localizationId + ".title").GetLocalizedString();
       descriptionText.text = stringTable.GetTable().GetEntry("quest." + gameQuestInfo.localizationId + ".description").GetLocalizedString();
-      completionText.text = questProgress.currentProgress + "/" + gameQuestInfo.target ;// gameQuestInfo.Completion(info);
-      
+      completionText.text = String.Format(stringTable.GetTable().GetEntry("quest.progress").GetLocalizedString(), questProgress.currentProgress, gameQuestInfo.target);
+
       switch (questProgress.gameQuestStatus)
       {
-        case GameQuestSavedData.GameQuestStatus.Enabled:
-          rewardButton.onClick.RemoveAllListeners();
-          rewardButton.onClick.AddListener(Hide);
-          statusImage.enabled = false;
-          backgroundImage.sprite = currentlyActiveQuestSprite;
-
-          giftText.enabled = false;
-          okText.enabled = true;
-          giftImage.enabled = false;
-
-          break;
         case GameQuestSavedData.GameQuestStatus.Locked:
-          rewardButton.onClick.RemoveAllListeners();
-          rewardButton.onClick.AddListener(Hide);
           statusImage.enabled = true;
           statusImage.sprite = lockMarkSprite;
-          backgroundImage.sprite = notUnlockedQuestSprite;
+          backgroundImage.sprite = lockedQuestSprite;
           giftText.enabled = false;
           okText.enabled = true;
           giftImage.enabled = false;
-
-
           break;
         case GameQuestSavedData.GameQuestStatus.WaitingForEnable:
-          rewardButton.onClick.RemoveAllListeners();
-          rewardButton.onClick.AddListener(Hide);
           statusImage.enabled = false;
           backgroundImage.sprite = unvalidedQuestSprite;
           giftText.enabled = false;
@@ -116,8 +97,6 @@ namespace FredericRP.GameQuest
 
           break;
         case GameQuestSavedData.GameQuestStatus.InProgress:
-          rewardButton.onClick.RemoveAllListeners();
-          rewardButton.onClick.AddListener(Hide);
           statusImage.enabled = true;
           statusImage.sprite = checkMarkSprite;
           backgroundImage.sprite = validatedQuestSprite;
@@ -129,44 +108,50 @@ namespace FredericRP.GameQuest
 
           break;
         case GameQuestSavedData.GameQuestStatus.WaitingForReward:
-          rewardButton.onClick.RemoveAllListeners();
-          rewardButton.onClick.AddListener(GetReward);
           statusImage.enabled = false;
           backgroundImage.sprite = waitGetRewardQuestSprite;
           giftText.enabled = true;
           okText.enabled = false;
           giftImage.enabled = true;
-          statusText.enabled = false;
-
           statusText.enabled = true;
           //statusText.text = validatedID + " " + questProgress.LaunchDate.ToString(CultureInfo.InvariantCulture);// SmartLocalization.LanguageManager.Instance.GetTextValue(validatedID) + " " + info.launchDate.ToString(CultureInfo.InvariantCulture);
 
           break;
+        default:
+          statusImage.enabled = false;
+          backgroundImage.sprite = checkMarkSprite;
+          giftText.enabled = false;
+          okText.enabled = true;
+          giftImage.enabled = false;
+          statusText.enabled = false;
+          break;
       }
     }
 
-    void OnDisable()
+    public void Validate()
     {
-      /*
-      GameQuestManager.OnGameQuestCompleted -= UpdateSimilarInformation;
-      GameQuestManager.OnGameQuestExpired -= UpdateSimilarInformation;
-      // */
-    }
-
-    public void UpdateSimilarInformation(GameQuestInfo newGameQuestInfo, GameQuestSavedData.QuestProgress newInfo)
-    {
-      if (newGameQuestInfo == gameQuestInfo && newInfo == questProgress)
+      if (questProgress.gameQuestStatus == GameQuestSavedData.GameQuestStatus.WaitingForEnable)
       {
-        Init(newGameQuestInfo, newInfo);
+        LaunchQuest();
       }
+      else if (questProgress.gameQuestStatus == GameQuestSavedData.GameQuestStatus.WaitingForReward)
+      {
+        GetReward();
+      }
+      Close();
+    }
+
+    public void LaunchQuest()
+    {
+      GameQuestManager.Instance.LaunchQuest(questInfo, questProgress);
     }
 
     public void GetReward()
     {
-      GameQuestManager.Instance.GetGameQuestReward(this.gameQuestInfo.gameQuestReward);
+      GameQuestManager.Instance.GetGameQuestReward(this.questInfo.gameQuestReward);
       this.questProgress.gameQuestStatus = GameQuestSavedData.GameQuestStatus.Complete;
 
-      Init(this.gameQuestInfo, this.questProgress);
+      Init(this.questInfo, this.questProgress);
     }
   }
 }

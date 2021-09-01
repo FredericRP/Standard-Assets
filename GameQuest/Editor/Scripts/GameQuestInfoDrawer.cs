@@ -52,12 +52,12 @@ namespace FredericRP.GameQuest
         for (int dayNumber = 1; dayNumber <= 31; dayNumber++)
           dayList[dayNumber] = dayNumber.ToString();
       }
-      dayInMonth.intValue = EditorGUI.Popup(dayRect, dayInMonth.intValue + 1, dayList) - 1;
+      dayInMonth.intValue = EditorGUI.Popup(dayRect, dayInMonth.intValue, dayList);
       // -- MONTH
       SerializedProperty month = property.FindPropertyRelative("month");
       SerializedProperty year = property.FindPropertyRelative("year");
       float yearWidth = dateRect.width * 0.75f - 125;
-      var monthRect = new Rect(dateRect.x + dateRect.width * 0.25f + 5, dateRect.y, 70 + (year.intValue == -1 ? yearWidth : 0), dateRect.height);
+      var monthRect = new Rect(dateRect.x + dateRect.width * 0.25f + 5, dateRect.y, 70 + (year.intValue == 0 ? yearWidth : 0), dateRect.height);
       if (monthList == null)
       {
         monthList = new string[13];
@@ -69,9 +69,9 @@ namespace FredericRP.GameQuest
           monthTemp = monthTemp.AddMonths(1);
         }
       }
-      month.intValue = EditorGUI.Popup(monthRect, month.intValue + 1, monthList) - 1;
+      month.intValue = EditorGUI.Popup(monthRect, month.intValue, monthList);
       // -- YEAR
-      var yearChoiceRect = new Rect(monthRect.x + 75 + (year.intValue == -1 ? yearWidth : 0), dateRect.y, 40, dateRect.height);
+      var yearChoiceRect = new Rect(monthRect.x + 75 + (year.intValue == 0 ? yearWidth : 0), dateRect.y, 40, dateRect.height);
       var yearIntRect = new Rect(yearChoiceRect.x + 45, dateRect.y, yearWidth, dateRect.height);
       if (yearChoiceList == null)
       {
@@ -79,10 +79,10 @@ namespace FredericRP.GameQuest
         yearChoiceList[0] = "all";
         yearChoiceList[1] = "set";
       }
-      int yearChoice = EditorGUI.Popup(yearChoiceRect, year.intValue == - 1 ? 0 : 1, yearChoiceList);
+      int yearChoice = EditorGUI.Popup(yearChoiceRect, year.intValue == 0 ? 0 : 1, yearChoiceList);
       if (yearChoice == 0)
       {
-        year.intValue = -1;
+        year.intValue = 0;
       } else
       {
         year.intValue = EditorGUI.IntField(yearIntRect, year.intValue);

@@ -16,11 +16,27 @@ MonoBehaviour:
   m_TableCollectionNameGuidString: 02d47cbb64236b24ab25eb78d6108d9d
   m_Entries:
   - m_Id: 344291889152
-    m_Key: quest.1.description
+    m_Key: quest.10 blue flowers.description
     m_Metadata:
       m_Items: []
   - m_Id: 158496804864
-    m_Key: quest.1.title
+    m_Key: quest.10 blue flowers.title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2521157951901696
+    m_Key: quest.5 purple flowers.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2521244321009664
+    m_Key: quest.5 purple flowers.title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2525398074478592
+    m_Key: popup.ok
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2527070532227072
+    m_Key: quest.progress
     m_Metadata:
       m_Items: []
   m_Metadata:

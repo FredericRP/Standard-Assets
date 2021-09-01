@@ -23,7 +23,23 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 344291889152
-    m_Localized: Grab the blue flowers !
+    m_Localized: Grab the blue flowers!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2521157951901696
+    m_Localized: Grab the purple flowers!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2521244321009664
+    m_Localized: Purple quest
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2525398074478592
+    m_Localized: OK
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2527070532227072
+    m_Localized: '{0} / {1}'
     m_Metadata:
       m_Items: []
   references:

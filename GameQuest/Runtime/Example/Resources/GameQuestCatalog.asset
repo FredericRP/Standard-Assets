@@ -13,19 +13,19 @@ MonoBehaviour:
   m_Name: GameQuestCatalog
   m_EditorClassIdentifier: 
   gameQuestInfoList:
-  - gameQuestID: 1
-    localizationId: 1
+  - gameQuestID: 5 purple flowers
+    localizationId: 5 purple flowers
     month: 0
-    dayInMonth: 16
-    year: 2023
+    dayInMonth: 0
+    year: 0
     duration: 120
     target: 5
-    targetId: 0
-  - gameQuestID: 1
-    localizationId: 1
-    month: 3
-    dayInMonth: 2
-    year: 2021
-    duration: 120
-    target: 5
-    targetId: 0
+    targetId: 2
+  - gameQuestID: 10 blue flowers
+    localizationId: 10 blue flowers
+    month: 0
+    dayInMonth: 0
+    year: 0
+    duration: 180
+    target: 10
+    targetId: 1

@@ -437,7 +437,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "R\xE9cup\xE9rez votre cadeau !"
+  m_Text: Get your reward!
 --- !u!1 &1205925761206420
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,7 +583,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -698,7 +698,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Description/description/  description/description  description/description
+  m_Text: the full description of the quest cannot be longer than the box allows
+    it to be. The text size will adapt between min and max size, but you should be
+    aware that a too long description could cause your audience not to read it fully,
+    or even fully understand it.
 --- !u!1 &1423998745896292
 GameObject:
   m_ObjectHideFlags: 0
@@ -868,6 +871,7 @@ GameObject:
   - component: {fileID: 224544832172696096}
   - component: {fileID: 222303623927778628}
   - component: {fileID: 114469819228837000}
+  - component: {fileID: 1554309889}
   m_Layer: 5
   m_Name: OK
   m_TagString: Untagged
@@ -935,7 +939,43 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: OK
+  m_Text: Yo
+--- !u!114 &1554309889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650721389573468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:02d47cbb64236b24ab25eb78d6108d9d
+    m_TableEntryReference:
+      m_KeyId: 2525398074478592
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 1
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114469819228837000}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1794876679229586
 GameObject:
   m_ObjectHideFlags: 0
@@ -1022,8 +1062,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114475450729471096}
-        m_TargetAssemblyTypeName: FredericRP.Popups.PopupBase, FredericRP.Popups.Runtime
-        m_MethodName: Close
+        m_TargetAssemblyTypeName: FredericRP.GameQuest.GameQuestInfoDisplayer, FredericRP.GameQuest.Runtime
+        m_MethodName: Validate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1243,7 +1283,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "La qu\xEAte du petit Guillaume"
+  m_Text: Quest title
 --- !u!1 &1981181210808130
 GameObject:
   m_ObjectHideFlags: 0
@@ -1304,7 +1344,6 @@ MonoBehaviour:
   giftText: {fileID: 114477470621952180}
   okText: {fileID: 114469819228837000}
   statusText: {fileID: 114961961900506452}
-  hideOnAwake: 1
   rewardButton: {fileID: 114840742781809208}
   backgroundImage: {fileID: 114257383342823044}
   statusImage: {fileID: 114658256813236850}
@@ -1315,8 +1354,7 @@ MonoBehaviour:
     type: 3}
   unvalidedQuestSprite: {fileID: 21300000, guid: 34ff0a7c0a19c344b9a41423b507adc4,
     type: 3}
-  notUnlockedQuestSprite: {fileID: 21300000, guid: de81eaa8becced44683e0ce383d313e7,
-    type: 3}
+  lockedQuestSprite: {fileID: 21300000, guid: de81eaa8becced44683e0ce383d313e7, type: 3}
   waitGetRewardQuestSprite: {fileID: 21300000, guid: 78d474a747d0c6446b2f2642714c8f1c,
     type: 3}
   lockMarkSprite: {fileID: 21300000, guid: 161c9e4700339df4e9117f2bcb9b2dc8, type: 3}
@@ -1334,7 +1372,7 @@ Animator:
   m_GameObject: {fileID: 1981181210808130}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: da5361f0260644d1db511c1aebd19d7e, type: 2}
+  m_Controller: {fileID: 22100000, guid: b3d833d3e91abc44b83f86fcd98a8c41, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1459,4 +1497,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Il vous reste 0h/15m/25s
+  m_Text: 2 min 23 sec

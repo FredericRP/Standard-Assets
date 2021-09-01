@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37e7538c495106f4eaa4f678a66c636d, type: 3}
-  m_Name: QuestActivated
+  m_Script: {fileID: 11500000, guid: 58e2978ef8b80bb4cbffeb651b2ab406, type: 3}
+  m_Name: QuestWaitingForEnable
   m_EditorClassIdentifier: 

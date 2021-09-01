@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: QuestInfoPopupController
+  m_Controller: {fileID: 9100000, guid: da5361f0260644d1db511c1aebd19d7e, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 964f9748b9b4149b4befe04ef49e8e4e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 2997a75550a281246aeb97a50ca6201b, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: f03039eefe5d34d4e837c993eab78dcc, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d2eab14b8dba454478838381b775705b, type: 2}
