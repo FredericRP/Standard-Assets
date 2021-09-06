@@ -1,4 +1,6 @@
-﻿using FredericRP.StringDataList;
+﻿using FredericRP.PlayerCurrency;
+using FredericRP.StringDataList;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace FredericRP.GameQuest
@@ -31,13 +33,14 @@ namespace FredericRP.GameQuest
     /// Target amount to reach
     /// </summary>
     public int target = 5;
+
     /// <summary>
     /// What does the target represents? Link that to your favorite Enum or own IDs in game
     /// </summary>
-    [Select("QuestTarget")]
+    [Select(PlayerCurrencyData.CurrencyList)]
     public int targetId;
-
-    public GameQuestReward gameQuestReward;
+       
+    public List<GameQuestReward> gameQuestRewardList;
 
     public static System.TimeSpan RemainingTime(GameQuestInfo questInfo, GameQuestSavedData.QuestProgress questProgress)
     {

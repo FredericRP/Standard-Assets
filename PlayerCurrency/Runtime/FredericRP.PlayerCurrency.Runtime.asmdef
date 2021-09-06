@@ -1,0 +1,18 @@
+{
+    "name": "FredericRP.PlayerCurrency.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "FredericRP.Singleton.Runtime",
+        "FredericRP.PersistentDataSystem.Runtime",
+        "FredericRP.StringDataList.Runtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

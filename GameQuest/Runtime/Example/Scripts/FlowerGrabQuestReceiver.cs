@@ -39,7 +39,13 @@ namespace FredericRP.GameQuest
         GameQuestInfo questInfo = GameQuestManager.Instance.GetGameQuest(flowerGrabbedList[i].gameQuestId);
         flowerGrabbedList[i].questInfo = questInfo;
         flowerGrabbedList[i].questProgress = questSavedData.GetQuestProgress(questInfo.gameQuestID);
+        // Unlock quest by default
+        if (flowerGrabbedList[i].questProgress.gameQuestStatus == GameQuestSavedData.GameQuestStatus.Locked)
+          flowerGrabbedList[i].questProgress.gameQuestStatus = GameQuestSavedData.GameQuestStatus.WaitingForEnable;
+
       }
+      // Ensure data is saved right away to be available for other systems
+      //PersistentDataSystem.Instance.SaveData<GameQuestSavedData>();
     }
 
     private void OnEnable()
@@ -57,7 +63,7 @@ namespace FredericRP.GameQuest
     private void QuestLaunched(GameQuestInfo questInfo, GameQuestSavedData.QuestProgress questProgress)
     {
       Debug.Log("Received quest launched " + questInfo.gameQuestID + " for target id " + questInfo.targetId);
-      FlowerGrabStatus status = flowerGrabbedList.Find(status => status.gameQuestId == questInfo.gameQuestID);
+      FlowerGrabStatus status = flowerGrabbedList.Find(item => item.gameQuestId == questInfo.gameQuestID);
       if (status != null)
       {
         Debug.Log("Received quest launched for flower id " + questInfo.targetId);
@@ -68,7 +74,7 @@ namespace FredericRP.GameQuest
     void FlowerGrabbed(int id)
     {
       Debug.Log("Received grab event flower id " + id);
-      FlowerGrabStatus status = flowerGrabbedList.Find(status => status.questInfo.targetId == id);
+      FlowerGrabStatus status = flowerGrabbedList.Find(item => item.questInfo.targetId == id);
       if (status != null)
       {
         status.questProgress.currentProgress++;

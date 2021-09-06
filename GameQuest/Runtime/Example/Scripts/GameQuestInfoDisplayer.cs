@@ -148,10 +148,7 @@ namespace FredericRP.GameQuest
 
     public void GetReward()
     {
-      GameQuestManager.Instance.GetGameQuestReward(this.questInfo.gameQuestReward);
-      this.questProgress.gameQuestStatus = GameQuestSavedData.GameQuestStatus.Complete;
-
-      Init(this.questInfo, this.questProgress);
+      GameQuestManager.Instance.GiveGameQuestReward(questInfo, questProgress);
     }
   }
 }

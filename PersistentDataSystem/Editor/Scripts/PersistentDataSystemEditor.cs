@@ -12,10 +12,21 @@ namespace FredericRP.PersistentData
   {
     PersistentDataSystem.SaveType currentSaveType = PersistentDataSystem.SaveType.Default;
 
+    static bool mustCheckList = true;
+
+    [DidReloadScripts]
+    public static void OnCompileScripts()
+    {
+      mustCheckList = true;
+    }
+
     public override void OnInspectorGUI()
     {
       if (mustCheckList)
-        UpdateSpecificClassList();
+      {
+        MonoScript ms = MonoScript.FromScriptableObject(this);
+        UpdateSpecificClassList<SavedData>(ms, PersistentDataSystem.SpecificClassListDataFilename + ".txt");
+      }
 
       serializedObject.Update();
       EditorGUI.BeginChangeCheck();
@@ -66,34 +77,7 @@ namespace FredericRP.PersistentData
       if (persistentDataSystem.savedDataList != null)
       {
         EditorGUILayout.PropertyField(serializedObject.FindProperty("savedDataList"), true);
-        /*
-        if (persistentDataSystem.savedDataList != null)
-        {
-          for (int i = 0; i < persistentDataSystem.savedDataList.Count; i++)
-          {
-            if (persistentDataSystem.savedDataFoldout.Count < i + 1)
-              persistentDataSystem.savedDataFoldout.Add(false);
-            persistentDataSystem.savedDataFoldout[i] = EditorGUILayout.Foldout(persistentDataSystem.savedDataFoldout[i], persistentDataSystem.savedDataList[i]?.GetType() + " #" + i, true);
-            if (persistentDataSystem.savedDataFoldout[i])
-            {
-              EditorGUI.indentLevel++;
-              //DrawPropertiesExcluding()
-              SavedData savedData = persistentDataSystem.savedDataList[i];
-              //EditorGUILayout.ObjectField(savedData, savedData.GetType(), false);
-              //
-              var objectiveEditor = CreateEditor(persistentDataSystem.savedDataList[i]);
-              if (objectiveEditor != null)
-              {
-                objectiveEditor.OnInspectorGUI();
-                DestroyImmediate(objectiveEditor);
-              }
-              EditorGUI.indentLevel--;
-            }
-          }
-        }
-        // */
       }
-
 
       serializedObject.ApplyModifiedProperties();
       if (EditorGUI.EndChangeCheck())
@@ -102,22 +86,13 @@ namespace FredericRP.PersistentData
       }
     }
 
-    static bool mustCheckList = true;
-
-    [DidReloadScripts]
-    public static void OnCompileScripts()
-    {
-      mustCheckList = true;
-    }
-
     /// <summary>
     /// Get types derived from <c>SavedData</c> and update the pds-specific-class data list for the editor to find them
     /// </summary>
-    void UpdateSpecificClassList()
+    public static void UpdateSpecificClassList<T>(MonoScript source, string dataListFilename)
     {
-      string dataPath;
-      MonoScript ms = MonoScript.FromScriptableObject(this);
-      dataPath = AssetDatabase.GetAssetPath(ms);
+      string dataPath;      
+      dataPath = AssetDatabase.GetAssetPath(source);
 
       FileInfo fi = new FileInfo(dataPath);
       // Get parent, then add Resources/datafile/pds-specific-class.txt to get the correct data path
@@ -125,16 +100,16 @@ namespace FredericRP.PersistentData
       // ensure directory exists
       if (!File.Exists(dataDirectory))
         Directory.CreateDirectory(dataDirectory);
-      dataPath = dataDirectory + "/pds-specific-class.txt";
+      dataPath = dataDirectory + "/" + dataListFilename;
 
       using (FileStream fs = File.Create(dataPath))
       {
         StreamWriter writer = new StreamWriter(fs);
 
-        var extractedTypes = TypeCache.GetTypesDerivedFrom<SavedData>();
+        var extractedTypes = TypeCache.GetTypesDerivedFrom<T>();
         foreach (Type type in extractedTypes)
         {
-          if (type.IsSubclassOf(typeof(SavedData)))
+          if (type.IsSubclassOf(typeof(T)))
           {
             writer.Write(type.FullName + "\n");
           }
@@ -144,9 +119,9 @@ namespace FredericRP.PersistentData
       }
       mustCheckList = false;
     }
+
     void SpecificClassEditor(PersistentDataSystem persistentDataSystem)
     {
-      // */
       SerializedProperty classToLoad = serializedObject.FindProperty("classToLoad");
       EditorGUILayout.PropertyField(classToLoad, new GUIContent("Specific classes"));
     }

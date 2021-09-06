@@ -28,17 +28,26 @@ namespace FredericRP.GameQuest
       public string gameQuestId;
       [SerializeField]
       protected string launchDate;
-      public System.DateTime LaunchDate { get { return String.IsNullOrEmpty(launchDate) ? System.DateTime.Now : System.DateTime.ParseExact(launchDate, dateTimeFormat, dateTimeProvider ); } set { launchDate = value.ToString(dateTimeFormat); } }
+      /// <summary>
+      /// Launch date of the quest. If it's in the future, it is not launched yet (!)
+      /// </summary>
+      public System.DateTime LaunchDate { get { return String.IsNullOrEmpty(launchDate) ? System.DateTime.Now.AddYears(1) : System.DateTime.ParseExact(launchDate, dateTimeFormat, dateTimeProvider ); } set { launchDate = value.ToString(dateTimeFormat); } }
       public LaunchMode launchMode;
-      public GameQuestStatus gameQuestStatus;
+      public GameQuestStatus gameQuestStatus = GameQuestStatus.Locked;
       public int currentProgress;
-
 
       public QuestProgress(string _gameQuestID, System.DateTime _launchDate, LaunchMode _gameQuestLaunchMode, GameQuestStatus _gameQuestStatus)
       {
         gameQuestId = _gameQuestID;
         LaunchDate = _launchDate;
         launchMode = _gameQuestLaunchMode;
+        gameQuestStatus = _gameQuestStatus;
+      }
+
+      public QuestProgress(string _gameQuestID, GameQuestStatus _gameQuestStatus)
+      {
+        gameQuestId = _gameQuestID;
+        launchMode = LaunchMode.Immediate;
         gameQuestStatus = _gameQuestStatus;
       }
 
@@ -75,9 +84,24 @@ namespace FredericRP.GameQuest
       dataName = "GameQuestSavedData";
     }
 
-    public QuestProgress GetQuestProgress(string gameQuestId, bool includeComplete = true)
+    /// <summary>
+    /// Get the saved quest progress<br/>
+    /// Can filter on not complete nor locked quests, and create right away a quest on the locked status
+    /// </summary>
+    /// <param name="gameQuestId"></param>
+    /// <param name="includeComplete"></param>
+    /// <param name="includeLocked"></param>
+    /// <param name="createIfNull"></param>
+    /// <returns></returns>
+    public QuestProgress GetQuestProgress(string gameQuestId, bool includeComplete = true, bool includeLocked = true, bool createIfNull = true)
     {
-      return questProgressList.Find(quest => quest.gameQuestId == gameQuestId && quest.gameQuestStatus != GameQuestStatus.Locked && (includeComplete ? true : quest.gameQuestStatus != GameQuestStatus.Complete));
+      QuestProgress questProgress = questProgressList.Find(quest => quest.gameQuestId == gameQuestId && (includeLocked ? true : quest.gameQuestStatus != GameQuestStatus.Locked) && (includeComplete ? true : quest.gameQuestStatus != GameQuestStatus.Complete));
+      if (questProgress == null && createIfNull)
+      {
+        questProgress = new QuestProgress(gameQuestId, GameQuestStatus.Locked);
+        SetQuestProgress(questProgress);
+      }
+      return questProgress;
     }
 
     public void SetQuestProgress(QuestProgress questProgress)

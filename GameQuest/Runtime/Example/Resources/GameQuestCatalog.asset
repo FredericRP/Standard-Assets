@@ -21,6 +21,9 @@ MonoBehaviour:
     duration: 120
     target: 5
     targetId: 2
+    gameQuestRewardList:
+    - {fileID: 11400000, guid: 7b85e41977afda8439d8d0d6bd025098, type: 2}
+    - {fileID: 11400000, guid: b4e22a9d3a5f6964e8b05f9e6669ab72, type: 2}
   - gameQuestID: 10 blue flowers
     localizationId: 10 blue flowers
     month: 0
@@ -29,3 +32,5 @@ MonoBehaviour:
     duration: 180
     target: 10
     targetId: 1
+    gameQuestRewardList:
+    - {fileID: 11400000, guid: 7b85e41977afda8439d8d0d6bd025098, type: 2}

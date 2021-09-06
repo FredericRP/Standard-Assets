@@ -1,11 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace FredericRP.GameQuest
 {
-    public abstract class GameQuestReward
-    {
-        public abstract void GiveReward();
-    }
+  [System.Serializable]
+  public abstract class GameQuestReward : ScriptableObject
+  {
+    /// <summary>
+    /// Abstraction layer to give a quest reward to a player
+    /// </summary>
+    /// <param name="playerId"></param>
+    public abstract void GiveReward(int playerId = 0);
+  }
 }

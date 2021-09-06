@@ -11,6 +11,7 @@ For 1.2.2 release and previous ones, this is a copy/paste from FredericRP's Stan
 - Added virtual to GameEvent methods to allow override
 
 ### Fixed
+- Do not throw a null pointer when exiting play mode when removing event listener
 - Added namespace for value reference children classes
 
 ## [1.2.2] - 2021-07-30

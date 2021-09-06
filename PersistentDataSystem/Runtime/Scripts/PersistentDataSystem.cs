@@ -14,6 +14,7 @@ namespace FredericRP.PersistentData
     public enum AwakeLoadMode { None, SpecificClass, AllSavedData };
     public enum SaveMode { SingleFile, MultipleFile };
     public enum SaveType { Default, Player };
+    public const string SpecificClassListDataFilename = "pds-specific-class";
     /// <summary>
     /// Folder where PersistentDataSystem files are stored
     /// </summary>
@@ -76,7 +77,7 @@ namespace FredericRP.PersistentData
     public SaveMode saveMode = SaveMode.MultipleFile;
 
     [Tooltip("Classes to load at the start of the game")]
-    [Select("pds-specific-class")]
+    [Select(SpecificClassListDataFilename)]
     public List<string> classToLoad;
 
     [SerializeReference]

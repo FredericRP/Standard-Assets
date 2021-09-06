@@ -67,7 +67,7 @@ namespace FredericRP.EventManagement
 
     internal static void RemoveEventListener(GameEvent gameEvent, UnityAction handler)
     {
-      Instance.RemoveInstanceEventListener(gameEvent, handler);
+      Instance?.RemoveInstanceEventListener(gameEvent, handler);
     }
     internal void RemoveInstanceEventListener(GameEvent gameEvent, UnityAction handler)
     {
@@ -81,7 +81,7 @@ namespace FredericRP.EventManagement
 
     internal static void RemoveEventListener<T>(GameEvent gameEvent, UnityAction<T> handler)
     {
-      Instance.RemoveInstanceEventListener<T>(gameEvent, handler);
+      Instance?.RemoveInstanceEventListener<T>(gameEvent, handler);
     }
     internal void RemoveInstanceEventListener<T>(GameEvent gameEvent, UnityAction<T> handler)
     {
@@ -95,7 +95,7 @@ namespace FredericRP.EventManagement
 
     internal static void RemoveEventListener<T, U>(GameEvent gameEvent, UnityAction<T, U> handler)
     {
-      Instance.RemoveInstanceEventListener<T, U>(gameEvent, handler);
+      Instance?.RemoveInstanceEventListener<T, U>(gameEvent, handler);
     }
     internal void RemoveInstanceEventListener<T, U>(GameEvent gameEvent, UnityAction<T, U> handler)
     {
@@ -108,7 +108,7 @@ namespace FredericRP.EventManagement
     }
     internal static void RemoveEventListener<T, U, V>(GameEvent gameEvent, UnityAction<T, U, V> handler)
     {
-      Instance.RemoveInstanceEventListener<T, U, V>(gameEvent, handler);
+      Instance?.RemoveInstanceEventListener<T, U, V>(gameEvent, handler);
     }
     internal void RemoveInstanceEventListener<T, U, V>(GameEvent gameEvent, UnityAction<T, U, V> handler)
     {

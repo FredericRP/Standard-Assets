@@ -32,22 +32,31 @@ namespace FredericRP.GameQuest
         }
         // */
 
-    System.DateTime cachedDate;
-    List<GameQuestInfo> cachedSelectedQuestList;
+    [System.NonSerialized]
+    private System.DateTime cachedDate;
+    [System.NonSerialized]
+    private List<GameQuestInfo> cachedSelectedQuestList = null;
+
+    private void Awake()
+    {
+      cachedSelectedQuestList = null;
+    }
 
     public GameQuestInfo GetRandomAvailableQuest()
     {
-      UpdateAvailableQuestList();
+      UpdateTodayQuestList();
       int rand = Random.Range(0, cachedSelectedQuestList.Count);
 
       return cachedSelectedQuestList[rand];
     }
 
-    public void UpdateAvailableQuestList(bool forceUpdate = false)
+    public void UpdateTodayQuestList(bool forceUpdate = false)
     {
+      Debug.Log("Update Today quest count force=" + forceUpdate);
+
       List<GameQuestInfo> selectedQuestList = gameQuestInfoList;
       System.DateTime date = System.DateTime.Now;
-      if (cachedDate.Equals(date) && !forceUpdate)
+      if (cachedSelectedQuestList != null && cachedDate.Equals(date) && !forceUpdate)
         selectedQuestList = cachedSelectedQuestList;
       else
       {
@@ -60,10 +69,11 @@ namespace FredericRP.GameQuest
       }
     }
 
-    public int AvailableQuestCount()
+    public int TodayQuestCount()
     {
+      Debug.Log("Today quest count from list " + cachedSelectedQuestList);
       if (cachedSelectedQuestList == null)
-        UpdateAvailableQuestList();
+        UpdateTodayQuestList();
       Debug.Log("Available quest " + cachedSelectedQuestList + " count:" + cachedSelectedQuestList?.Count);
       if (cachedSelectedQuestList == null)
         return 0;
@@ -73,7 +83,7 @@ namespace FredericRP.GameQuest
     public GameQuestInfo GetAvailableQuest(int index)
     {
       if (cachedSelectedQuestList == null)
-        UpdateAvailableQuestList();
+        UpdateTodayQuestList();
       if (cachedSelectedQuestList == null || index >= cachedSelectedQuestList.Count || index < 0)
         return null;
       return cachedSelectedQuestList[index];

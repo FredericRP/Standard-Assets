@@ -1,1 +1,2 @@
 FredericRP.GameQuest.GameQuestSavedData
+FredericRP.PlayerCurrency.PlayerCurrencyData

@@ -1,0 +1,18 @@
+{
+  "name": "com.fredericrp.playercurrency",
+  "version": "1.0.0",
+  "displayName": "FRP Player Currency",
+  "description": "An easy to setup in game currency manager.",
+  "unity": "2020.1",
+  "unityRelease": "0f1",
+  "dependencies": {
+ },
+ "keywords": [
+    "standard assets"
+  ],
+  "author": {
+    "name": "FredericRP",
+    "email": "unity@FredericRP.com",
+    "url": "https://FredericRP.com"
+  }
+}

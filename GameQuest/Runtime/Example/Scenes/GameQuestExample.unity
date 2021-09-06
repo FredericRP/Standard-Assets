@@ -251,8 +251,10 @@ MonoBehaviour:
   saveMode: 1
   classToLoad:
   - FredericRP.GameQuest.GameQuestSavedData
+  - FredericRP.PlayerCurrency.PlayerCurrencyData
   savedDataList:
   - id: 0
+  - id: 1
   debug: 1
   references:
     version: 1
@@ -261,18 +263,14 @@ MonoBehaviour:
       data:
         dataName: GameQuestSavedData
         dataVersion: v0
-        questProgressList:
-        - gameQuestId: 5 purple flowers
-          launchDate: 
-          launchMode: 1
-          gameQuestStatus: 2
-          currentProgress: 3
-        - gameQuestId: 10 blue flowers
-          launchDate: 
-          launchMode: 1
-          gameQuestStatus: 2
-          currentProgress: 2
+        questProgressList: []
         lastCheckDate: 
+    00000001:
+      type: {class: PlayerCurrencyData, ns: FredericRP.PlayerCurrency, asm: FredericRP.PlayerCurrency.Runtime}
+      data:
+        dataName: PlayerCurrencyData
+        dataVersion: v0
+        currencyList: []
 --- !u!4 &572218997
 Transform:
   m_ObjectHideFlags: 0
@@ -285,7 +283,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &787920052
 GameObject:
@@ -455,11 +453,11 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 78d474a747d0c6446b2f2642714c8f1c,
+    m_HighlightedSprite: {fileID: 21300000, guid: 7df6511eca1ebe248a6d9f1a035e03eb,
       type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 34ff0a7c0a19c344b9a41423b507adc4, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 78d474a747d0c6446b2f2642714c8f1c, type: 3}
-    m_DisabledSprite: {fileID: 21300000, guid: de81eaa8becced44683e0ce383d313e7, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 8ae815918cc2d3549913c6dc9920f878, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 7df6511eca1ebe248a6d9f1a035e03eb, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: 5f867b214206e3247a8f0d476a3d70ed, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -503,7 +501,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 78d474a747d0c6446b2f2642714c8f1c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7df6511eca1ebe248a6d9f1a035e03eb, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -578,7 +576,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6d873caa866dd3440b695302c4f52e8c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f8a3b3da1fcb5c94db3c671b9423c89d, type: 3}
   m_Type: 2
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1270,7 +1268,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4297614242525030, guid: 1b06fa8a353580e4d8b5b0ef307af959, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4297614242525030, guid: 1b06fa8a353580e4d8b5b0ef307af959, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1585,7 +1583,7 @@ RectTransform:
   - {fileID: 854424789}
   - {fileID: 1816836753}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1598,6 +1596,63 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 3212978565635023026}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2105192217
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1363612382836290, guid: f66102280196c0642b8428a2c34fdc18, type: 3}
+      propertyPath: m_Name
+      value: PlayerCurrencyManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4892078401395800, guid: f66102280196c0642b8428a2c34fdc18, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4892078401395800, guid: f66102280196c0642b8428a2c34fdc18, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4892078401395800, guid: f66102280196c0642b8428a2c34fdc18, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4892078401395800, guid: f66102280196c0642b8428a2c34fdc18, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4892078401395800, guid: f66102280196c0642b8428a2c34fdc18, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4892078401395800, guid: f66102280196c0642b8428a2c34fdc18, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4892078401395800, guid: f66102280196c0642b8428a2c34fdc18, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4892078401395800, guid: f66102280196c0642b8428a2c34fdc18, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4892078401395800, guid: f66102280196c0642b8428a2c34fdc18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4892078401395800, guid: f66102280196c0642b8428a2c34fdc18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4892078401395800, guid: f66102280196c0642b8428a2c34fdc18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f66102280196c0642b8428a2c34fdc18, type: 3}
 --- !u!1 &2131867258
 GameObject:
   m_ObjectHideFlags: 0
@@ -1662,7 +1717,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3212978565635023026
 PrefabInstance:
