@@ -38,7 +38,9 @@ namespace FredericRP.PlayerCurrency
     {
       // 1. Get data from current list
       CurrencyData currencyData = null;
-      if (currencyList != null)
+      if (currencyList == null)
+        currencyList = new List<CurrencyData>();
+      else
         currencyData = currencyList.Find(element => element.money.Equals(moneyId));
       return currencyData;
     }
@@ -56,13 +58,11 @@ namespace FredericRP.PlayerCurrency
       {
         currencyData = new CurrencyData();
         currencyData.money = moneyId;
-        // protect against default negative count
-        currencyData.count = (count > 0 ? count : 0);
+        currencyData.count = 0;
         currencyList.Add(currencyData);
-        return currencyData.count;
       }
-      // Protection against going below 0 / underflow
       currencyData.count += count;
+      // Protection against going below 0 / underflow
       if (currencyData.count < 0)
         currencyData.count = 0;
 

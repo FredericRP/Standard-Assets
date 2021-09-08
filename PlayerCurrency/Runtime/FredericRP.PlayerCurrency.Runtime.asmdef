@@ -4,7 +4,8 @@
     "references": [
         "FredericRP.Singleton.Runtime",
         "FredericRP.PersistentDataSystem.Runtime",
-        "FredericRP.StringDataList.Runtime"
+        "FredericRP.StringDataList.Runtime",
+        "FredericRP.GameEventHandler.Runtime"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

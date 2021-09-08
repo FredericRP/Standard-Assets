@@ -1,17 +1,46 @@
 using FredericRP.GameQuest;
 using FredericRP.PersistentData;
 using FredericRP.Popups;
+using System;
+using TMPro;
 using UnityEngine;
 
 public class ShowQuestPopup : ShowPopup
 {
   [SerializeField]
   bool onAwake = false;
+  [SerializeField]
+  GameQuestEvent onGameQuestComplete;
+  [SerializeField]
+  GameQuestEvent onGameQuestValidate;
+  [SerializeField]
+  GameObject alertIcon;
+  [SerializeField]
+  TextMeshProUGUI text;
 
   private void Awake()
   {
     if (onAwake)
       DisplayPopup();
+  }
+
+  private void OnEnable()
+  {
+    onGameQuestComplete.Listen<GameQuestInfo, GameQuestSavedData.QuestProgress>(UpdateAlertIcon);
+    onGameQuestValidate.Listen<GameQuestInfo, GameQuestSavedData.QuestProgress>(UpdateAlertIcon);
+  }
+
+  private void OnDisable()
+  {
+    onGameQuestComplete.Delete<GameQuestInfo, GameQuestSavedData.QuestProgress>(UpdateAlertIcon);
+    onGameQuestValidate.Delete<GameQuestInfo, GameQuestSavedData.QuestProgress>(UpdateAlertIcon);
+  }
+
+  private void UpdateAlertIcon(GameQuestInfo questInfo, GameQuestSavedData.QuestProgress questProgress)
+  {
+    int currentWaitingQuestCount = GameQuestManager.Instance.GetWaitingForRewardCount();
+    alertIcon.SetActive(currentWaitingQuestCount > 0);
+    text.text = currentWaitingQuestCount.ToString();
   }
 
   public override void DisplayPopup()

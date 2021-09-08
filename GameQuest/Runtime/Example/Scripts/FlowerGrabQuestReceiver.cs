@@ -73,16 +73,15 @@ namespace FredericRP.GameQuest
 
     void FlowerGrabbed(int id)
     {
-      Debug.Log("Received grab event flower id " + id);
       FlowerGrabStatus status = flowerGrabbedList.Find(item => item.questInfo.targetId == id);
       if (status != null)
       {
-        status.questProgress.currentProgress++;
         status.totalAmount++;
-        Debug.Log("Grab event progress " + status.questProgress.currentProgress + " out of " + status.questInfo.target);
-        if (status.questProgress.currentProgress >= status.questInfo.target)
+        if (status.questProgress.currentProgress < status.questInfo.target)
+          status.questProgress.currentProgress++;
+        else
         {
-          Debug.Log("Quest complete ! " + status.questProgress.gameQuestId);
+          status.questProgress.currentProgress = status.questInfo.target;
           GameQuestManager.Instance.CompleteGameQuest(status.questInfo, status.questProgress);
         }
       }

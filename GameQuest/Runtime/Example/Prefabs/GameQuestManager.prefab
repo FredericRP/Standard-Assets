@@ -52,7 +52,7 @@ MonoBehaviour:
   onGameQuestComplete: {fileID: 11400000, guid: 1ad683cb369d23c4a8a946f3fad39626,
     type: 2}
   onGameQuestExpire: {fileID: 11400000, guid: 83ae6c87fd0ed544aad3e35df80f9dab, type: 2}
-  onRewardObtained: {fileID: 0}
+  onRewardObtained: {fileID: 11400000, guid: df59234cd1998864eb73ce098c2a3330, type: 2}
   gameQuestArray: {fileID: 11400000, guid: c0f7f76ce805ecd4bb39c19b06da2702, type: 2}
   obtainRewardDirectlyWhenQuestCompleted: 0
   numberOfQuestInHistoric: 0
@@ -73,6 +73,7 @@ MonoBehaviour:
     type: 3}
   minTargetPosition: {x: 140, y: 140}
   maxTargetPosition: {x: 1780, y: 940}
+  maxRadius: {x: 800, y: 400}
   startBurst: 30
   intervalBetwenSpawn: 3
   lifeRatio: 1.2
@@ -104,6 +105,7 @@ MonoBehaviour:
       duration: 0
       target: 0
       targetId: 0
+      gameQuestRewardList: []
     questProgress:
       gameQuestId: 
       launchDate: 
@@ -121,6 +123,7 @@ MonoBehaviour:
       duration: 0
       target: 0
       targetId: 0
+      gameQuestRewardList: []
     questProgress:
       gameQuestId: 
       launchDate: 

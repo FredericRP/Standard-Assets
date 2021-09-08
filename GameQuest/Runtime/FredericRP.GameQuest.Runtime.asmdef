@@ -8,7 +8,8 @@
         "FredericRP.Popups.Runtime",
         "Unity.Localization",
         "FredericRP.StringDataList.Runtime",
-        "FredericRP.PlayerCurrency.Runtime"
+        "FredericRP.PlayerCurrency.Runtime",
+        "Unity.TextMeshPro"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

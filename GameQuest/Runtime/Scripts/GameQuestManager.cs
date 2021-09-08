@@ -1,23 +1,13 @@
 ﻿using FredericRP.EventManagement;
 using FredericRP.GenericSingleton;
 using FredericRP.PersistentData;
+using System;
 using UnityEngine;
 
 namespace FredericRP.GameQuest
 {
   public class GameQuestManager : Singleton<GameQuestManager>
   {
-
-    /// <summary>
-    /// Simplify the call to generic methods of GameEvent
-    /// </summary>
-    [CreateAssetMenu(menuName = "FredericRP/Game Quest/Reward event")]
-    public class GameQuestRewardEvent : GameEvent
-    {
-      public void Raise(GameQuestReward questReward, GameEventHandler eventHandler = null) =>
-        Raise<GameQuestReward>(questReward, eventHandler);
-    }
-
     /// <summary>
     /// Locked -> WaitingForEnable
     /// </summary>
@@ -29,7 +19,7 @@ namespace FredericRP.GameQuest
     /// </summary>
     public GameQuestEvent onGameQuestValidate;
     /// <summary>
-    /// WaitingForReward -> Complete
+    /// InProgress/WaitingForReward -> Complete
     /// </summary>
     public GameQuestEvent onGameQuestComplete;
     /// <summary>
@@ -63,15 +53,28 @@ namespace FredericRP.GameQuest
       return GetQuestFromStatus(GameQuestSavedData.GameQuestStatus.InProgress);
     }
 
-    public GameQuestInfo GetQuestFromStatus(GameQuestSavedData.GameQuestStatus status)
+    public int GetWaitingForRewardCount()
     {
+      // TODO: optimize data to be able to link between progress and quests easily
       GameQuestSavedData gameQuestSavedData = PersistentDataSystem.Instance.GetSavedData<GameQuestSavedData>();
-      Debug.Log("Check GameQuestSavedData " + gameQuestSavedData + " count: " + gameQuestArray?.TodayQuestCount());
+      int count = 0;
       for (int questIndex = 0; questIndex < gameQuestArray.TodayQuestCount(); questIndex++)
       {
         GameQuestInfo questInfo = gameQuestArray.GetAvailableQuest(questIndex);
         GameQuestSavedData.QuestProgress questProgress = gameQuestSavedData.GetQuestProgress(questInfo.gameQuestID);
-        Debug.Log("Check questInfo " + questInfo + "\nWith progress " + questProgress);
+        if (questProgress != null && questProgress.gameQuestStatus == GameQuestSavedData.GameQuestStatus.WaitingForReward)
+          count++;
+      }
+      return count;
+    }
+
+    public GameQuestInfo GetQuestFromStatus(GameQuestSavedData.GameQuestStatus status)
+    {
+      GameQuestSavedData gameQuestSavedData = PersistentDataSystem.Instance.GetSavedData<GameQuestSavedData>();
+      for (int questIndex = 0; questIndex < gameQuestArray.TodayQuestCount(); questIndex++)
+      {
+        GameQuestInfo questInfo = gameQuestArray.GetAvailableQuest(questIndex);
+        GameQuestSavedData.QuestProgress questProgress = gameQuestSavedData.GetQuestProgress(questInfo.gameQuestID);
         if (questProgress != null && questProgress.gameQuestStatus == status)
           return questInfo;
       }
@@ -100,13 +103,18 @@ namespace FredericRP.GameQuest
     public void CompleteGameQuest(GameQuestInfo questInfo, GameQuestSavedData.QuestProgress questProgress)
     {
       Debug.Log("Complete Quest " + questInfo.gameQuestID);
-      if (obtainRewardDirectlyWhenQuestCompleted)
-        questProgress.gameQuestStatus = GameQuestSavedData.GameQuestStatus.Complete;
-      else
-        questProgress.gameQuestStatus = GameQuestSavedData.GameQuestStatus.WaitingForReward;
       GameQuestSavedData gameQuestSavedData = PersistentDataSystem.Instance.GetSavedData<GameQuestSavedData>();
       gameQuestSavedData.SetQuestProgress(questProgress);
-      onGameQuestComplete?.Raise(questInfo, questProgress);
+
+      if (obtainRewardDirectlyWhenQuestCompleted)
+      {
+        GiveGameQuestReward(questInfo, questProgress);
+      }
+      else
+      {
+        questProgress.gameQuestStatus = GameQuestSavedData.GameQuestStatus.WaitingForReward;
+        onGameQuestValidate?.Raise(questInfo, questProgress);
+      }
     }
 
     /// <summary>
@@ -127,6 +135,8 @@ namespace FredericRP.GameQuest
     public void GiveGameQuestReward(GameQuestInfo questInfo, GameQuestSavedData.QuestProgress questProgress)
     {
       questProgress.gameQuestStatus = GameQuestSavedData.GameQuestStatus.Complete;
+      onGameQuestComplete?.Raise(questInfo, questProgress);
+
       GameQuestSavedData gameQuestSavedData = PersistentDataSystem.Instance.GetSavedData<GameQuestSavedData>();
       gameQuestSavedData.SetQuestProgress(questProgress);
 
